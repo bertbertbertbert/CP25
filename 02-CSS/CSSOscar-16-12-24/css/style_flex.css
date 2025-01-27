@@ -1,0 +1,203 @@
+:root {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.5rem;
+}
+
+*,
+*::before,
+*::after,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 1.5rem;
+  background-color: black;
+  color: white;
+}
+
+header,
+main,
+footer {
+  margin-bottom: 2rem;
+}
+
+P {
+  margin: 1.5rem;
+}
+
+h1 {
+  font-size: 2.98rem;
+  line-height: 5rem;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 4rem;
+  text-align: center;
+}
+
+.cambioCaja {
+  text-transform: lowercase;
+}
+
+.cambioCaja span {
+  text-transform: uppercase;
+}
+
+.contenedor {
+  background-color: rgb(190, 186, 186);
+  display: flex;
+  /* flex-direction: row-reverse;
+  flex-wrap: wrap; */
+  flex-flow: wrap row-reverse; /* sirve para poner todo en una linea */
+}
+
+.elemento {
+  width: 100px;
+  height: 100px;
+  margin: 0.5rem;
+  background-color: white;
+  color: rgb(190, 186, 186);
+  font-size: 1.8rem;
+  line-height: 4rem;
+}
+
+.contenedor2 {
+  background-color: rgb(133, 191, 133);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.element {
+  width: 100px;
+  height: 100px;
+  margin: 0.5rem;
+  background-color: white;
+  color: rgb(133, 191, 133);
+  font-size: 1.8rem;
+  line-height: 4rem;
+}
+
+.contenedor3 {
+  background-color: rgb(191, 183, 133);
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  overflow: auto;
+}
+
+.elemen {
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  margin: 0.5rem;
+  background-color: white;
+  color: rgb(191, 183, 133);
+  font-size: 1.8rem;
+  line-height: 4rem;
+}
+
+.uno {
+  line-height: 5rem;
+  font-size: 3rem;
+}
+
+.dos {
+  padding-top: 1.5rem;
+  line-height: 5rem;
+  font-size: 3rem;
+}
+
+.contenedor4 {
+  background-color: rgb(197, 98, 98);
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  justify-content: center;
+}
+
+.eleme {
+  text-align: center;
+  width: 100px;
+  margin: 0.5rem;
+  background-color: white;
+  color: rgb(197, 98, 98);
+  font-size: 1.8rem;
+  line-height: 4rem;
+}
+
+.flex-container {
+  display: flex;
+  background-color: rgb(98, 98, 191);
+}
+
+.flex-container > div {
+  background-color: white;
+  color: rgb(98, 98, 191);
+  width: 100px;
+  margin: 0.5rem;
+  text-align: center;
+  line-height: 5rem;
+  font-size: 2rem;
+}
+
+div.orden {
+  background-color: rgb(224, 162, 162);
+  order: 1;
+}
+
+div.orden2 {
+  background-color: rgb(158, 148, 148);
+  order: 2;
+}
+
+div.grow {
+  background-color: rgb(224, 162, 162);
+  flex-grow: 1;
+}
+
+div.grow2 {
+  background-color: rgb(158, 148, 148);
+  flex-grow: 2;
+}
+
+div.shrink {
+  background-color: rgb(224, 162, 162);
+  flex-shrink: 1;
+}
+
+div.shrink2 {
+  background-color: rgb(158, 148, 148);
+  flex-shrink: 4;
+}
+
+div.basis {
+  flex-basis: 350px;
+}
+
+div.paraladiv2 {
+  background-color: rgb(224, 162, 162);
+
+  flex: 0 3 200px; /* shrink, grow, basis en este orden, pdemos prescindir de las ultimas */
+}
+
+div.paraladiv3 {
+  background-color: rgb(158, 148, 148);
+
+  flex: 3 1;
+}

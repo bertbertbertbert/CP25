@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/estilo.css" />
+  <title>Ejercicio con Tabla</title>
+</head>
+
+<body>
+  <input type="text" class="form-control w-25" id="recoger" /><br>
+  <button class="btn btn-outline-dark" id="enviar">Número de carácteres</button>
+  <button class="btn btn-outline-dark" id="cursiva">Cambiar a cursiva</button>
+  <button class="btn btn-outline-dark" id="negrita">Cambiar a negrita</button>
+  <button class="btn btn-outline-dark" id="rojo">Cambiar a color rojo</button>
+  <button class="btn btn-outline-dark" id="grande">Cambiar a tamaño grande</button><br>
+
+  <div id="mostrar">#</div>
+  <div id="mostrarTabla"></div>
+
+  <script>
+    const recoger = document.querySelector("#recoger");
+    const btnEnviar = document.querySelector("#enviar");
+    const btnCursiva = document.querySelector("#cursiva");
+    const btnNegrita = document.querySelector("#negrita");
+    const btnColorRojo = document.querySelector("#rojo");
+    const btnGrande = document.querySelector("#grande");
+    const mostrar = document.querySelector("#mostrar");
+
+    btnEnviar.addEventListener("click", () => {
+      let valor = recoger.value;
+      let longitud = valor.length;
+      mostrar.innerHTML = `Número de caracteres: ${longitud}`;
+    });
+
+    btnCursiva.addEventListener("click", () => {
+      let valor = recoger.value;
+      mostrar.innerHTML = valor;
+      mostrar.style.fontStyle = "italic";
+    });
+
+    btnNegrita.addEventListener("click", () => {
+      let valor = recoger.value;
+      mostrar.innerHTML = valor;
+      mostrar.style.fontWeight = "bold";
+    });
+
+    btnColorRojo.addEventListener("click", () => {
+      let valor = recoger.value;
+      mostrar.innerHTML = valor;
+      mostrar.style.color = "red";
+    });
+
+    btnGrande.addEventListener("click", () => {
+      let valor = recoger.value;
+      mostrar.innerHTML = valor;
+      mostrar.style.fontSize = "5rem";
+    });
+
+    const mostrarTabla = function () {
+      let mostrarTabla = document.querySelector("#mostrarTabla");
+      let tabla = `
+        <table>
+          <tr>
+            <td> celda 1 </td>
+            <td> celda 2 </td>
+          </tr>
+          <tr>
+            <td> celda 3 </td>
+            <td> celda 4 </td>
+          </tr>
+        </table>
+      `;
+      mostrarTabla.innerHTML = tabla;
+      let estiloTabla = document.querySelector("table");
+      estiloTabla.style.borderCollapse = "collapse";
+      estiloTabla.style.border = "1px solid black";
+    };
+
+    window.onload = mostrarTabla;
+
+  </script>
+</body>
+
+</html>

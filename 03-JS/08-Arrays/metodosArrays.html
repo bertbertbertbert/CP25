@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métodos array</title>
+</head>
+
+<body>
+  <script>
+    let hombres = ["pablo", "josé"];
+    console.log(hombres);
+    let mujeres = ["lucia", "gemma", "zelda"];
+    console.log(mujeres);
+
+    //clonar arrays antes de trabajarlas
+    let hombresClon = hombres.slice(0);
+    console.log(hombres, hombresClon);
+
+    let humanos = mujeres.concat(hombres);
+    console.log(hombres.lastIndexOf("josé"))
+    console.log(humanos.lastIndexOf("josé"))
+    console.log(hombres);
+    humanos.push("william");
+    console.log(humanos);
+    hombres.push("William");
+    console.log(hombres);
+    console.log(humanos);
+    humanos = hombres.concat(mujeres);
+    console.log(humanos);
+    console.log(humanos.pop());
+    console.log(humanos.shift());
+    console.log(hombres);
+    console.log(mujeres);
+    console.log(humanos);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/indexStyle.css" />
+    <title>CSS</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Aprendiendo CSS</h1>
+      <h2>Cascading Style Sheets. Hojas de Estilo en cascada</h2>
+    </header>
+
+    <nav>
+      <h3>Indice de contenidos</h3>
+      <ul id="menu">
+        <li></li>
+        <li><a href="#basicos">Selectores básicos</a></li>
+        <li><a href="#avanzados">Selectores avanzados</a></li>
+        <li><a href="#jerarquia">Jerarquia en CSS -restricciones-</a></li>
+        <li><a href="css/sources/box-model alumnes.html">BOX Modelo</a></li>
+        <li><a href="#reseteo">Reseteo navegadores</a></li>
+        <li><a href="#position">Posicionamiento</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section>
+        <h3 id="basicos">SELECTORES BÁSICOS</h3>
+        <article>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+            labore libero, corrupti dolorum cumque sit sapiente incidunt
+            obcaecati molestias, itaque nisi? Sunt, ratione ipsa at eos earum
+            voluptate voluptatibus incidunt.
+          </p>
+        </article>
+        <article>
+          <p class="parrafo-2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+            labore libero, corrupti dolorum cumque sit sapiente incidunt
+            obcaecati molestias, itaque nisi? Sunt, ratione ipsa at eos earum
+            voluptate voluptatibus incidunt.
+          </p>
+        </article>
+        <article>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+            labore libero, corrupti dolorum cumque sit sapiente incidunt
+            obcaecati molestias, itaque nisi? Sunt, ratione ipsa at eos earum
+            voluptate voluptatibus incidunt.
+          </p>
+          <small class="parrafo-2"
+            >Una etiqueta small con los atributos de "parrafo-2"</small
+          >
+        </article>
+      </section>
+      <section>
+        <article>
+          <h3>selectores hijos</h3>
+          <ul class="directos">
+            <li><strong></strong></li>
+            <li><strong></strong></li>
+            <li><strong></strong></li>
+            <li><strong></strong></li>
+          </ul>
+        </article>
+        <br />
+        <article>
+          <h3>Selectores de atributos</h3>
+          <ul class="atributo">
+            <li><a href="https://dominio.com" target="_blank">Productos</a></li>
+            <li><a class="opcion" href="https://dominio.com">Nosotros</a></li>
+            <li>
+              <a href="https://dominio.com" target="_blank">Servicio Técnico</a>
+            </li>
+            <li><a href="https://dominio.com">Contacto</a></li>
+            <li><a class="opcion" href="https://dominio.com">Otros</a></li>
+          </ul>
+        </article>
+      </section>
+      <br />
+      <section>
+        <h3 id="jerarquia">Jerarquía en CSS -restricciones-</h3>
+        <article>
+          <p>
+            Los navegadores aplican estilos a los dcumentos HTMLS por jerarquia
+            basada en:
+          </p>
+          <ol>
+            <li>Cascada</li>
+            <li>Especifidad</li>
+            <li>Herencia</li>
+          </ol>
+          <p>
+            La cascada es el procedimiento con el que un navegador aplica
+            estilos y el orden de importancia o restriccion es el siguiente:
+          </p>
+          <ol>
+            <li>
+              Origen del codigo
+              <ul>
+                <li>Reglas del User Agent</li>
+                <li>Reglas del usuario</li>
+                <li>Reglas desarrollador</li>
+              </ul>
+            </li>
+            <li>Ka especificidad del selector</li>
+            <li>Oden de aparición</li>
+          </ol>
+          <p>La especidicidad es la fuerza restrictiva o peso de un selector</p>
+          <ul>
+            <li>Estilo en línea 1</li>
+            <li>id 0,1</li>
+            <li>clases, atributos, pseudoclases 0,01</li>
+            <li>Etiquetas 0,0,0,1</li>
+            <li>!important - Es el amo. Se salta toda la jerarquía</li>
+          </ul>
+          <p>
+            La Herencia es la capicada que tienen los padres de hacer heredar a
+            sus hijos sus propiedades. "Valores inherit o hererados".
+          </p>
+        </article>
+      </section>
+      <section>
+        <h3 id="reseteo">Reseteo navegadores</h3>
+        <p>
+          Ante la diferente interpretacion del aspecto de ls elementos del html
+          que utiliza cada navegador, nace la necesidad de borrar o resetar odas
+          estas propiedades naivas de los anvegadores para dejar el control a
+          los desarrolladores. <br />
+          Existen en el mercado diversos archivos css que funcionan como
+          reseteadores estnadar, como normalize.css o reset.css.
+        </p>
+      </section>
+      <section>
+        <h3 id="position">Posicionamiento "Position"</h3>
+        <h4>Tipos de poscionamiento de los elementos html</h4>
+
+        <ul>
+          <li><a href="">Static</a></li>
+          <small>
+            Comportamiento nativo de posicionamiento de todos los elementos HTML
+          </small>
+
+          <li><a href="">Relative</a></li>
+
+          <li><a href="../02-CSS/css/sources/fixed.html">Absolute</a></li>
+
+          <li><a href="../02-CSS/css/sources/absolute.html">Fixed</a></li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

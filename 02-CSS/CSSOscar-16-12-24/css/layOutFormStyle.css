@@ -1,0 +1,105 @@
+:root {
+  font-size: 16px;
+  line-height: 1.5;
+}
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+nav {
+  background-color: aquamarine;
+  height: 10%;
+}
+.container {
+  height: 90%;
+}
+section {
+  background-color: orangered;
+  height: 90%;
+}
+
+main {
+  height: 75%;
+}
+header,
+footer {
+  background-color: rgb(136, 206, 136);
+  height: 13%;
+}
+
+aside {
+  background-color: greenyellow;
+  height: 10%;
+}
+
+article {
+  height: 95%;
+  padding: 15px;
+}
+form {
+  height: 92%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+}
+.message {
+  order: 2;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.contact {
+  order: 1;
+  height: 50%;
+  justify-content: space-around;
+}
+form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 900px) {
+  body {
+    display: flex;
+    flex-direction: row;
+  }
+  nav {
+    height: 100%;
+    width: 15%;
+  }
+  .container {
+    width: 100%;
+    height: 94.5%;
+  }
+  main {
+    display: flex;
+    width: 100%;
+    height: 80%;
+  }
+  section {
+    height: 100%;
+    width: 90%;
+  }
+  aside {
+    height: 100%;
+    width: 20%;
+  }
+  form {
+    flex-direction: row;
+  }
+  .message,
+  .contact {
+    width: 50%;
+    margin: 2%;
+  }
+}

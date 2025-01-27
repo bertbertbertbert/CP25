@@ -1,0 +1,105 @@
+/* Contenido en CSS
+
+Regla CSS consta ed 2 partes
+
+1- Selector
+2-Bloque de declaraciones {
+  atributo: valor;
+  atributo-de-mas-de-dos-palabras:otro-valor;
+  otro-atributo-de-caja:valor-valor-valor-valor;
+}
+ */
+
+/* resteo personal para los navegadores*/
+
+:root {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  --verde: green; /* variable en css */
+}
+
+::before,
+::after {
+  border: 0;
+  padding: 0;
+}
+
+html {
+  background-color: rgb(11, 63, 11);
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* fin del reseteo*/
+
+body {
+  margin: 0 auto;
+  padding: 5px;
+  background-color: black;
+  color: var(--verde); /* aplicamos la variable */
+
+  width: 1080px;
+  height: fit-content;
+  border: 3px green solid;
+}
+header {
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: green 3px solid;
+  margin: auto;
+  padding: 20px;
+}
+a {
+  color: green;
+  pad: 5px;
+}
+nav {
+  border-bottom: 3px green solid;
+}
+#menu {
+  list-style: none;
+}
+main {
+  margin: auto;
+  padding: 10px;
+}
+p {
+  color: green;
+  background-color: black;
+  border: green dotted 2px;
+  padding: 10px;
+  text-align: center;
+}
+p:hover {
+  color: black;
+  background-color: green;
+}
+.parrafo-2 {
+  font-size: 20px;
+}
+
+/* hijos directos */
+.directos > li {
+}
+
+/* todos los descendientes */
+.directos strong {
+}
+.atributo a[target] {
+  font-size: larger;
+}
+.atributo a[href] {
+  font-style: italic;
+}
+
+a:hover {
+  color: black;
+  background-color: green;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/estilo.css">
+  <title>Encendre i apagar bombeta</title>
+</head>
+
+<body>
+  <button class="btn btn-outline-dark" id="switch">Switch</button>
+  <div id="contenedorBombilla" class="container">
+    <!--     <button class="btn btn-outline-dark" id="btnEncender">Encender</button>
+      <button class="btn btn-outline-dark" id="btnApagar">Apagar</button> -->
+
+    <img src="imgs_T2/encendida.gif" alt="bombilla encendida" id="encendida" />
+    <img src="imgs_T2/apagada.gif" alt="bombilla apagada" id="apagada" />
+  </div>
+  <script>
+
+    let bombillaApagada = document.querySelector("#apagada");
+    let bombillaEncendida = document.querySelector("#encendida");
+
+    bombillaApagada.style.position = "absolute";
+    bombillaEncendida.style.position = "absolute";
+
+    document.querySelector("#switch").addEventListener("click", () => {
+      bombillaApagada.classList.toggle("cambiarEstado"); //cambia estado con solo un botón
+    })
+  </script>
+</body>
+
+</html>

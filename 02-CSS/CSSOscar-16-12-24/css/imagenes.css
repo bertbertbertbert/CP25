@@ -1,0 +1,52 @@
+img {
+  /* max-width: 100%; si pueden, llegan a la maxima anchura de su tamaño original */
+  width: 100%;
+}
+
+.card {
+  border: solid 1px black;
+  width: 400px;
+  height: 500px;
+  background-image: url(https://fastly.picsum.photos/id/523/400/300.jpg?hmac=m_NjfivXECk309knWm2M--1ZJIpxk8B85vfioCrC3qM);
+}
+
+h4 {
+  font-size: 2rem;
+  color: rgb(234, 164, 164);
+  padding-left: 2rem;
+}
+
+.galeria {
+  width: 200px;
+  height: 200px;
+}
+
+.alinear {
+  text-align: center;
+}
+.alinear > a {
+  display: inline-block;
+  overflow: hidden;
+}
+.alinear > a img {
+  width: 200px;
+  height: 200px;
+  transition: all 2s ease;
+  overflow: hidden;
+}
+
+.alinear > a:hover img {
+  width: 300px;
+}
+
+.imgfons {
+  width: 100%;
+  height: 600px;
+  background-image: url(../../../01-CursoHTML/img/gif1.gif),
+    url(../../../01-CursoHTML/img/background.jpg);
+  background-position: bottom center;
+  background-size: 50% cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  overflow: hidden;
+}

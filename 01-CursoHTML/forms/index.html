@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="estilos.css" />
+  <title>Formularios</title>
+</head>
+
+<body>
+  <h1 class="titulos">FORMULARIO HTML</h1>
+  <br />
+  <form action="https://formsubmit.co/macalfa3@gmail.com" method="POST">
+    <fieldset>
+      <legend class="titulos">DATOS PERSONALES</legend>
+      <br />
+      <div>
+        <label for="nombreYApellido">Nombre y apellido</label><br>
+        <input id="nombreYApellido" type="text" name="nombreYApellido" placeholder="nombre y apellido" required
+          pattern="^[A-ZÀ]{1}[a-zA-ZÀ-ÿ\u00f1\u00d1\s]{2,40}$" />
+      </div>
+      <br /><br />
+      <div>
+        <label for="telefono">Teléfono</label><br>
+        <input type="text" name="telefono" id="telefono" placeholder="Teléfono" pattern="\d{9,13}" />
+      </div>
+      <br /><br />
+      <div>
+        <label for="correo">Correo Electrónico</label><br>
+        <input type="email" name="correo" id="correo" required placeholder="Correo Electrónico"
+          pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}" />
+      </div>
+      <br /><br />
+      <div>
+        <label for="edad">Fecha de Nacimiento</label><br>
+        <input type="date" name="edad" id="edad" />
+      </div>
+      <br /><br />
+      <div>
+        <div>
+          <label for="sexo">Indica tu Sexo</label><br>
+          <label for="mujer">Mujer</label>
+          <input type="radio" name="sexo" id="mujer" value="Mujer" checked>
+          <label for="hombre">Hombre</label>
+          <input type="radio" name="sexo" id="" value="Hombre">
+          <label for="noBinario">No Binario</label>
+          <input type="radio" name="sexo" id="sexo" value="No binario">
+          <br><br>
+        </div>
+    </fieldset>
+    <fieldset>
+      <legend class="titulos">DATOS PROFESIONALES Y PREFERENCIAS</legend><br>
+      <div>
+        <label for="idioma">Idioma materno</label><br>
+        <select name="idioma" id="idioma" required>
+          <option value="" selected>Elige un Idioma</option>
+          <option value="es">Español</option>
+          <option value="fr">Francés</option>
+          <option value="en">Inglés</option>
+        </select><br><br>
+      </div><br>
+
+      <div>
+        <label for="programacion">Selecciona los Lenguajes de Programación que conozcas</label><br>
+        <select name="programacion" id="programacion" required multiple>
+          <option value="" selected>Elige una Opción</option>
+          <option value="js">JavaScript</option>
+          <option value="php">PHP</option>
+          <option value="java">Java</option>
+        </select><br><br>
+      </div><br>
+
+      <div>
+        <label for="Hobbies">Aficiones</label><br><br>
+        <label for="deportes">Deportes</label>
+        <input type="checkbox" name="deportes" id="deportes" value="deportes">
+        <label for="deportes">Salud</label>
+        <input type="checkbox" name="salud" id="salud" value="salud">
+        <label for="deportes">Finanzas</label>
+        <input type="checkbox" name="financias" id="financias" value="financias">
+        </select><br><br>
+      </div><br>
+      <div>
+        <label for="cv">Sube tu Currículum Vitae</label><br>
+        <input type="file" accept=".doc, .pdf, .jpg"><br><br>
+      </div><br>
+      <div>
+        <label for="comentario">Deja tu Comentario</label>
+        <textarea name="comentario" id="comentario" cols="10" rows="10"></textarea>
+      </div><br>
+    </fieldset>
+    <div>
+      <fieldset>
+        <legend class="titulos">GESTIÓN DE DATOS</legend> <br>
+        <input type="reset" value="Restablecer" />
+        <input type="submit" value="enviar" /><br /><br />
+      </fieldset>
+    </div>
+    <br />
+  </form>
+  <script src="../JS/script.js"></script>
+  <a href="../index.html">Volver al inicio</a>
+</body>
+
+</html>

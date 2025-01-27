@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/estilo.css" />
+  <title>Exercici 15</title>
+</head>
+
+<body>
+  <label for="text">Introduce la base del triángulo</label>
+  <input type="text" class="form-control w-25" id="baseTriangulo" /><br />
+  <label for="text">Introduce la base del la altura</label>
+  <input type="text" class="form-control w-25" id="alturaTriangulo" />
+  <div id="mostrarArea"></div>
+  <button class="btn btn-outline-dark" id="btnTriangulo">Calcular área del triangulo</button>
+
+  <script>
+
+    document.querySelector("#btnTriangulo").addEventListener("click", () => {
+      let area = (parseInt(document.querySelector("#baseTriangulo").value) * parseInt(document.querySelector("#alturaTriangulo").value)) / 2;
+
+      if (isNaN(area)) {
+        document.querySelector("#mostrarArea").innerHTML = "Introduce carácteres numéricos";
+      } else {
+        document.querySelector("#mostrarArea").innerHTML = area;
+      }
+    })
+  </script>
+</body>
+
+</html>

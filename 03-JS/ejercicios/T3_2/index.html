@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <title>Exercicis T3_2</title>
+</head>
+
+<body>
+  <main class="container pt-5 p-5 border border-dark rounded mt-3 mb-3 ">
+    <h1 class="mb-5 text-center">Exercicis JavaScript 3_2</h1>
+    <h2 class="mb-3">Exercici nº1.</h2>
+    <p class="fs-5">
+      Crea un html que ens permeti recollir un array amb els mesos de l'any ja fet i ho mostrem:
+      a-En el seu ordre real
+      b-En ordre alfabètic
+      c-Separat amb guions
+      d-Ordre invers
+      e-Separat amb un altre caràcter que tu decideixis.
+    </p>
+    <form action="#" id="formularioMeses">
+      <label for="Orde Normal">Ordre Normal</label>
+      <input type="radio" value="normal" name="ordre" checked><br>
+      <label for="Orde Alfabètic">Ordre Alfabètic</label>
+      <input type="radio" value="alfabetic" name="ordre"><br>
+      <label for="Separat Amb Guions">Separat Amb Guions</label>
+      <input type="radio" value="guions" name="ordre"><br>
+      <label for="Orde invers">Ordre Invers</label>
+      <input type="radio" value="invers" name="ordre"><br>
+      <label for="Orde aleatori">Mostra un mes aleatoriament. Intenta adivinar quin mes sortirà!</label>
+      <input type="radio" value="aleatori" name="ordre"><br>
+    </form>
+    <button class="btn btn-primary" id="btn_Ej_Uno">Mostrar</button>
+    <button class="btn btn-danger" id="btnLimpiar_Ej_Uno">Netejar</button><br><br>
+    <div id="mostrar1"></div><br><br>
+    <hr>
+    <h2 class="mb-3">Exercici nº2.</h2>
+    <p class="fs-5">
+      En un html, demana a l'usuari que introdueixi en una àrea de text una frase, mitjançant una funció obriràs una
+      finestra controlada informant de:
+      a- la primera paraula
+      b- l'última paraula .
+      c- El nombre total de paraules
+      d- Les ordeneu alfabèticament i les escriviu separades amb un guió.
+    </p>
+    <label class="label-form" for="numero2">Introduiu una frase:</label>
+    <input class="form-control mb-3 bg-light" type="text" name="frase2" id="frase2">
+    <button class="btn btn-primary" id="btn_Ej_Dos">Mostrar</button>
+    <button class="btn btn-danger" id="btnLimpiar_Ej_Dos">Netejar</button><br><br>
+    <div id="mostrar2"></div><br><br>
+    <hr>
+    <h2 class="mb-3">Exercici nº3.</h2>
+    <p class="fs-5">
+      En un html, demana a l'usuari que introdueixi en una àrea de text una frase, mitjançant una funció obriràs una
+      finestra controlada informant de:
+      a- la primera paraula
+      b- l'última paraula .
+      c- El nombre total de paraules
+      d- Les ordeneu alfabèticament i les escriviu separades amb un guió.
+    </p>
+    <form id="formulariEx3">
+      <div class="form-row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Nom">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Cognom">
+        </div>
+      </div><br>
+      <div class="form-row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Edat">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="DNI">
+        </div>
+      </div><br>
+    </form>
+    <button class="btn btn-primary" id="btn_Ej_tres">Enviar</button>
+    <button type="reset" class="btn btn-danger">Netejar</button>
+    <div id="mostrar3"></div><br><br>
+
+  </main>
+  <script src="JS/app.js"></script>
+</body>
+
+</html>

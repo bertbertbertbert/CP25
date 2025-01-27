@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/estilo.css" />
+  <title>Ecercici 9</title>
+</head>
+<p id="mostrar9"></p>
+
+<body>
+  <script>
+
+
+    let amplada = screen.width;
+    let altura = screen.height;
+    let ampladaUtil = screen.availWidth;
+    let alturaUtil = screen.availHeight;
+    let diagonal = Math.sqrt(amplada ** 2 + altura ** 2);
+    document.querySelector("#mostrar9").innerHTML = `Amplada: ${amplada}. Altura: ${altura}. Aamplada útil: ${ampladaUtil}. Altura Útil: ${alturaUtil}. Diagonal ${diagonal}.`;
+  </script>
+</body>
+
+</html>
