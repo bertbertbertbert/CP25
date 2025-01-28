@@ -133,30 +133,8 @@ function recogerDatos(item) {
   const nouUsuari = {
     "Nom": nom4, "Cognom": cognom4, "Edat": edat4, "DNI": dni4
   }
-  personas.push(nouUsuari);
+  return nouUsuari;
 }
-
-btn4.onclick = () => {
-  recogerDatos(formulari4);
-  mostrar4.innerHTML = JSON.stringify(personas);
-  /*  validació(); */
-}
-
-btnBorrarUltim.onclick = () => {
-  personas.splice(personas.length - 1);
-  mostrar4.innerHTML = JSON.stringify(personas);
-  if (mostrar4.innerHTML.length < 3) {
-    mostrar4.innerHTML = "";
-  }
-};
-
-btnBorrarTots.onclick = () => {
-  personas.splice(0);
-  mostrar4.innerHTML = JSON.stringify(personas);
-  if (mostrar4.innerHTML.length < 3) {
-    mostrar4.innerHTML = "";
-  }
-};
 
 //validacions
 /* function validarText(item) {
@@ -184,8 +162,7 @@ function validarDNI(item) {
   return validacio;
 } */
 
-
-/* function validació() {
+  /* function validació() {
   if (!validarText(nom4)) {
     document.querySelector("#errorNom").innerHTML = `<p class="alert alert-danger" role="alert> Error introduïnt el nom </p>`
 
@@ -206,3 +183,38 @@ function validarDNI(item) {
     mostrar4.innerHTML = JSON.stringify(personas);
   }
 } */
+
+
+function limpiar(){
+ formulari4.elements["nom4"].value="";
+formulari4.elements["cognom4"].value="";
+formulari4.elements["edat4"].value="";
+formulari4.elements["dni4"].value="";
+}
+
+btn4.onclick = () => {
+  recogerDatos(formulari4);
+  /*  validació(); */
+  mostrar4.innerHTML = JSON.stringify(personas);
+  limpiar();
+}
+
+btnBorrarUltim.onclick = () => {
+  personas.splice(personas.length - 1);
+  mostrar4.innerHTML = JSON.stringify(personas);
+  if (mostrar4.innerHTML.length < 3) {
+    mostrar4.innerHTML = "";
+  }
+};
+
+btnBorrarTots.onclick = () => {
+  personas.splice(0);
+  mostrar4.innerHTML = JSON.stringify(personas);
+  if (mostrar4.innerHTML.length < 3) {
+    mostrar4.innerHTML = "";
+  }
+};
+
+
+
+
