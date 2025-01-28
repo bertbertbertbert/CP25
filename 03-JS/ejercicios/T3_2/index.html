@@ -19,7 +19,7 @@
       b-En ordre alfabètic
       c-Separat amb guions
       d-Ordre invers
-      e-Separat amb un altre caràcter que tu decideixis.
+      e-Separat amb un altre caràcter que tu decideixis:
     </p>
     <form action="#" id="formularioMeses">
       <label for="Orde Normal">Ordre Normal</label>
@@ -44,7 +44,7 @@
       a- la primera paraula
       b- l'última paraula .
       c- El nombre total de paraules
-      d- Les ordeneu alfabèticament i les escriviu separades amb un guió.
+      d- Les ordeneu alfabèticament i les escriviu separades amb un guió:
     </p>
     <label class="label-form" for="numero2">Introduiu una frase:</label>
     <input class="form-control mb-3 bg-light" type="text" name="frase2" id="frase2">
@@ -54,35 +54,64 @@
     <hr>
     <h2 class="mb-3">Exercici nº3.</h2>
     <p class="fs-5">
-      En un html, demana a l'usuari que introdueixi en una àrea de text una frase, mitjançant una funció obriràs una
-      finestra controlada informant de:
-      a- la primera paraula
-      b- l'última paraula .
-      c- El nombre total de paraules
-      d- Les ordeneu alfabèticament i les escriviu separades amb un guió.
+      4.Escriu un html que ens permeti mitjançant una funció mostrar les dades d'un array associatiu d'una persona amb
+      les
+      dades següents:
+      a- Nom b- Cognom c- Edat d- DNI:
     </p>
     <form id="formulariEx3">
       <div class="form-row">
         <div class="col">
-          <input type="text" class="form-control" placeholder="Nom">
+          <input type="text" class="form-control" placeholder="Nom" name="nom">
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="Cognom">
+          <input type="text" class="form-control" placeholder="Cognom" name="cognom">
         </div>
       </div><br>
       <div class="form-row">
         <div class="col">
-          <input type="text" class="form-control" placeholder="Edat">
+          <input type="text" class="form-control" placeholder="Edat" name="edat">
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="DNI">
+          <input type="text" class="form-control" placeholder="DNI" name="dni">
         </div>
-      </div><br>
-    </form>
+      </div>
+    </form><br>
     <button class="btn btn-primary" id="btn_Ej_tres">Enviar</button>
     <button type="reset" class="btn btn-danger">Netejar</button>
     <div id="mostrar3"></div><br><br>
-
+    <hr>
+    <h2 class="mb-3">Exercici nº4.</h2>
+    <p class="fs-5">
+      Escriu un prrograma que ens permeti introduir en inputs de text, Nom, Cognoms, edat i DNI, validi els imputs i ho
+      emmagatzemi en un array amb aquests índexs de posició. els mostri en un div, i permeti afegir tants persones com
+      faci
+      falta, eliminar l’últim, o borrar tots:
+    </p>
+    <form id="formulariEx4">
+      <div class="form-row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Nom" name="nom4">
+          <div id="errorNom"></div>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Cognom" name="cognom4">
+          <p id="errorCognom"></p>
+        </div>
+      </div><br>
+      <div class="form-row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Edat" name="edat4">
+          <p id="errorEdat"></p>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="DNI" name="dni4">
+          <p id="errorDni"></p>
+        </div>
+      </div>
+    </form>
+    <button class="btn btn-primary" id="btn_Ej_cuatro">Enviar</button>
+    <div id="mostrar4"></div><br><br>
   </main>
   <script src="JS/app.js"></script>
 </body>
