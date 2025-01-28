@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#mostrar {
+  height: fit-content;
+}
+table {
+  margin: 0 auto;
+  border-spacing: 0;
+}
+td {
+  border: 1px black solid;
+  padding: 10px;
+}
