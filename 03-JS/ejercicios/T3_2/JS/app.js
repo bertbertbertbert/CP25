@@ -118,20 +118,45 @@ btn3.onclick = () => {
 
 //ejercicio4
 
-let formulari4 = document.querySelector("#formulariEx4");
-let mostrar4 = document.querySelector("#mostrar4");
-let btn4 = document.querySelector("#btn_Ej_cuatro");
-let nom4 = formulari4.elements["nom4"].value;
-let cognom4 = formulari4.elements["cognom4"].value;
-let edat4 = formulari4.elements["edat4"].value;
-let dni4 = formulari4.elements["dni4"].value;
+const formulari4 = document.querySelector("#formulariEx4");
+const mostrar4 = document.querySelector("#mostrar4");
+const btn4 = document.querySelector("#btn_Ej_cuatro");
+const btnBorrarUltim = document.querySelector("#btnBorrarUltim");
+const btnBorrarTots = document.querySelector("#btnBorrarTots");
 
+let personas = [];
 function recogerDatos(item) {
-  nom4 = item.elements["nom4"].value;
-  cognom4 = item.elements["cognom4"].value;
-  edat4 = item.elements["edat4"].value;
-  dni4 = item.elements["dni4"].value;
+  let nom4 = formulari4.elements["nom4"].value;
+  let cognom4 = formulari4.elements["cognom4"].value;
+  let edat4 = formulari4.elements["edat4"].value;
+  let dni4 = formulari4.elements["dni4"].value;
+  const nouUsuari = {
+    "Nom": nom4, "Cognom": cognom4, "Edat": edat4, "DNI": dni4
+  }
+  personas.push(nouUsuari);
 }
+
+btn4.onclick = () => {
+  recogerDatos(formulari4);
+  mostrar4.innerHTML = JSON.stringify(personas);
+  /*  validació(); */
+}
+
+btnBorrarUltim.onclick = () => {
+  personas.splice(personas.length - 1);
+  mostrar4.innerHTML = JSON.stringify(personas);
+  if (mostrar4.innerHTML.length < 3) {
+    mostrar4.innerHTML = "";
+  }
+};
+
+btnBorrarTots.onclick = () => {
+  personas.splice(0);
+  mostrar4.innerHTML = JSON.stringify(personas);
+  if (mostrar4.innerHTML.length < 3) {
+    mostrar4.innerHTML = "";
+  }
+};
 
 //validacions
 /* function validarText(item) {
@@ -158,7 +183,7 @@ function validarDNI(item) {
   }
   return validacio;
 } */
-let personas = [];
+
 
 /* function validació() {
   if (!validarText(nom4)) {
@@ -181,14 +206,3 @@ let personas = [];
     mostrar4.innerHTML = JSON.stringify(personas);
   }
 } */
-let persona = {
-  "Nom": nom4, "Cognom": cognom4, "Edat": edat4, "DNI": dni4
-}
-personas.push(persona);
-mostrar4.innerHTML = JSON.stringify(personas);
-
-
-btn4.onclick = () => {
-  recogerDatos(formulari4);
-  validació();
-}
