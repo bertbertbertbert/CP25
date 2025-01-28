@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/estilo.css" />
+  <title>exercici Finestra Nova</title>
+</head>
+
+<body>
+  <button class="btn btn-outline-dark" id="btnObrir">Obrir nova finestra</button>
+  <button class="btn btn-outline-dark" id="btnTancar">Tancar nova finestra</button> <br><br>
+  <script>
+    let btnObrir = document.querySelector("#btnObrir");
+    let btnTancar = document.querySelector("#btnTancar");
+    let ampladaFN = 400;
+    let alturaFN = 200;
+    let atributosFinestraNova = `width=${ampladaFN}, height=${alturaFN}`
+    let titulo = prompt("elige un titulo para la ventana");
+    let ventanaNueva;
+    btnObrir.addEventListener('click', () => {
+      ventanaNueva = window.open("index2.html", titulo, atributosFinestraNova);
+      ventanaNueva.document.write(atributosFinestraNova);
+      ventanaNueva.document.title = titulo;
+    });
+
+    btnTancar.addEventListener('click', () => {
+      if (ventanaNueva) {
+        ventanaNueva.close();
+      }
+    });
+  </script>
+</body>
+
+</html>

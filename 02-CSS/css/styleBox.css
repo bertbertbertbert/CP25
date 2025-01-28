@@ -1,0 +1,65 @@
+h1 {
+  border-color: blue;
+  border-width: thick;
+  border-style: dashed;
+}
+
+.container-col-3 {
+  background-color: antiquewhite;
+  width: 600px;
+  height: 300px;
+  margin-top: 20px;
+}
+
+.container-col-3 > * {
+  box-sizing: border-box;
+  width: 200px;
+  border: thin solid red;
+  padding: 10px;
+  margin: 10px;
+}
+
+.container-floats {
+  background-color: green;
+}
+
+.float-left {
+  float: left;
+  background-color: green;
+}
+.float-right {
+  float: right;
+  background-color: green;
+}
+.container-floats {
+  background-color: green;
+}
+
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+
+.margin-collapse section {
+  border: thin solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.margin-collapse span {
+  border: thin solid black;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.sitio-web {
+  border: 5px solid green;
+  background-color: black;
+  color: green;
+  font-weight: 800;
+  width: 800px;
+  height: 1000px;
+  padding: 10px;
+  margin: 12px auto;
+}

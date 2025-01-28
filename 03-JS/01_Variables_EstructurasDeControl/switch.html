@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>switch</title>
+  </head>
+  <body>
+    <p id="resultado"></p>
+    <script>
+      let num_1 = Number(prompt("introduce un numero del 1 al 30"));
+      let result;
+      switch (num_1) {
+        case 10:
+          result = num_1 + " vale 10";
+          break;
+        case 20:
+          result = num_1 + " vale 20";
+          break;
+        case 30:
+          result = num_1 + " vale 30";
+          break;
+        default:
+          alert(num_1 + " no vale 10,20 ni 30");
+      }
+      document.getElementById("resultado").innerHTML = result;
+      alert(result);
+      console.log(result);
+    </script>
+  </body>
+</html>

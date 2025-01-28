@@ -1,0 +1,28 @@
+/* sticky: es una combinacion de posicionamiento absoluto relative y fixed, para este posicionamiento lsa propiedasds etop, left, bottom y right no mueven el elemento, sriven como punto de refenrcia, y mientras no llegue a su oisicion a ese valor, el elemento se comporta como relative, cuando llega seconvierte en fixed */
+
+#cabecera {
+  width: 100%;
+  height: 500px;
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+.sticky {
+  background-color: aqua;
+  height: 50px;
+  position: sticky;
+  top: 100;
+  z-index: 1;
+}
+
+.stickyParent {
+  border: 1px solid black;
+  height: 800px;
+  background-color: antiquewhite;
+}
+
+.sticky-child {
+  background-color: green;
+  position: sticky;
+  top: 100px;
+}

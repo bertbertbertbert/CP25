@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <title>Ejercicio T3 JavaScript</title>
+</head>
+
+<body>
+  <main class="container pt-5 p-5 border border-dark rounded mt-3 mb-3 ">
+    <h1 class="mb-5 text-center">Exercicis JavaScript 3_2</h1>
+    <h2 class="mb-4">Exercici nº1.</h2>
+    <p class="fs-5">Crea un html que per mitjà d'una funció et demani un número per camp de text i et digui si és nombre
+      parell o
+      imparell. Crea un botó per esborrar les dades.</p>
+    <label class="label-form" for="numero">Escriu un Nombre:</label>
+    <input class="form-control mb-3 w-50 bg-light" type="text" name="numero" id="numero" value="">
+    <p role="alert" id="mostrar1"></p>
+    <button class="btn btn-primary" id="btn_Ej_Uno">Resposta</button>
+    <button class="btn btn-warning" id="btn_Ej_Uno_Limpiar">Netejar</button> <br>
+    <hr>
+    <h2 class="mb-4">Exercici nº2.</h2>
+    <p class="fs-5">Escriu un html que et demani per funció i des d'un camp de text, el resultat de dividir 144/12.
+      Aquest resultat
+      es calcula en una altra funció i recollit en aquesta primera per deixar passar l'usuari o no segons la resposta.
+      Crea un botó per esborrar les dades.</p>
+    <label class="label-form" for="numero2">Escriu el resultat de dividir 144 entre 12:</label>
+    <input class="form-control mb-3 w-50 bg-light" type="text" name="numero2" id="numero2" value="">
+    <p role="alert" id="mostrar2"></p>
+    <button class="btn btn-primary" id="btn_Ej_Tos">Solució</button>
+    <button class="btn btn-warning" id="btn_Ej_Dos_Limpiar">Netejar</button> <br>
+    <hr>
+    <h2 class="mb-4">Exercici nº3.</h2>
+    <p class="fs-5">Escriviu un html que demani preu sense iva, després l'iva i et retorni el valor del producte amb
+      iva, tot això
+      amb camps de text i una funció. Crea un botó per esborrar les dades:</p>
+    <label class="label-form" for="preu">Introduïu el preu</label>
+    <input class="form-control mb-3 w-50 bg-light" type="text" name="preu" id="preu" value="">
+    <label class="label-form" for="iva">Introduïu l'iva</label>
+    <input class="form-control mb-3 w-50 bg-light" type="text" name="iva" id="iva" value="">
+    <p role="alert" id="mostrar3"></p>
+    <button class="btn btn-primary" id="btn_Ej_Tres">Mostrar preu amb IVA</button>
+    <button class="btn btn-warning" id="btn_Ej_Tres_Limpiar">Netejar</button> <br>
+    <hr>
+    <h2 class="mb-4">Exercici nº4.</h2>
+    <p class="fs-5">Escriu un programa que demani un primer número, ens permeti triar un select: suma, resta,
+      multiplica, divideix, o
+      mòdul,
+      després ens demani un segon número i ens doni el resultat de l'operació seleccionada. Tot això amb camps de text i
+      select:</p>
+    <label class="label-form" for="numUnoEj4">Introduïu un nombre per fer el càlcul:</label>
+    <input class="form-control mb-3 w-50 bg-light" type="text" name="numUnoEj4" id="numUnoEj4" value="">
+    <label class="label-form" for="select">Indiqueu quina operació voleu fer:</label>
+    <select id="select" name="select" class="form-select w-25">
+      <option value="">Selecció</option>
+      <option value="sumar">Suma</option>
+      <option value="restar">Resta</option>
+      <option value="multiplicar">Multiplicació</option>
+      <option value="dividir">Divisió</option>
+      <option value="modul">Mòdul</option>
+    </select><br><br>
+    <label class="label-form" for="numDosEj4">Introduïu el segon nombre per fer el càlcul:</label>
+    <input class="form-control mb-3 w-50 bg-light" type="text" name="numUnoEj4" id="numDosEj4" value="">
+    <p role="alert" id="mostrar4"></p>
+    <button class="btn btn-primary" id="btn_Ej_Cuatro">Calcular</button>
+    <button class="btn btn-warning" id="btn_Ej_Cuatro_Limpiar">Netejar</button> <br>
+    <hr>
+    <h2 class="mb-4">Exercici nº5.</h2>
+    <p class="fs-5">Crea un nou document HTML que ens demani un nombre d'etiquetes a imprimir, i les imprimiu a la
+      pàgina un llistat
+      dels codis d'un producte inventat… codi_producte 0 , codi_producte 1……:</p>
+    <label class="label-form" for="numUnoEj5">Introduïu el nombre de codis i productes que vols imprimir</label>
+    <input class="form-control mb-3 w-50 bg-light" type="text" name="numUnoEj5" id="numUnoEj5" value="">
+    <p role="alert" id="mostrar5"></p>
+    <button class="btn btn-primary" id="btn_Ej_Cinco">Mostrar</button>
+    <button class="btn btn-warning" id="btn_Ej_Cinco_Limpiar">Netejar</button><br>
+    <hr>
+    <h2 class="mb-4">Exercici nº7.</h2>
+    <p class="fs-5">A partir del mètode bgColor del document, construeix una funció que en carregar un html permeti en
+      un select,
+      seleccionar un color de quatre i amb un botó que rasigni a la pàgina aquest color de forndo:</p>
+    <label class="label-form" for="bgColor">Sel·lecciona un color per al fons:</label>
+    <select name="bgColor" id="bgColor" class="form-select w-25">
+      <option value="">Selecció</option>
+      <option value="#DEFAEB">Verd</option>
+      <option value="#BED4ED">Blau</option>
+      <option value="#F0E9C9">Groc</option>
+      <option value="#EEC8BF">Vermell</option>
+    </select><br>
+    <button class="btn btn-primary" id="btn_Ej_Siete">Aplicar Color</button>
+    <button class="btn btn-warning  " id="btn_Ej_Siete_Limpiar">Restaurar a color blanc</button>
+
+    <br><br>
+  </main>
+  <script src="JS/app.js"></script>
+</body>
+
+</html>

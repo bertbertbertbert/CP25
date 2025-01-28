@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables y estrucutras de control</title>
+  </head>
+  <body>
+    <script>
+      var hola = "Hola mundo";
+      let hello = "Hello world";
+      console.log(hola);
+      console.log(hello);
+      console.log(window.hola);
+      console.log(window.hello); //el let no se imprime porque es de alcance de bloque
+
+      function testVar() {
+        console.log(hola);
+        if (hola) {
+          hola = 800;
+          console.log(hola);
+        }
+      }
+      testVar(); //se llama a la funcion
+      console.log(hola); //la variable var se ha modificado
+
+      function testLet() {
+        console.log(hello);
+        if (hello) {
+          hello = 10;
+          console.log(hello);
+        }
+      }
+      testLet();
+      console.log(hello);
+    </script>
+    <script src="JS/app.js"></script>
+    <script src="JS/app2.js"></script>
+  </body>
+</html>

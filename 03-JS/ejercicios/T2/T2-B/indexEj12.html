@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/estilo.css">
+  <title>Execici 12</title>
+</head>
+
+<body>
+  <label for="recoger">Introduce un número, si tiene más de 10 carácteres te mostraré los 5 últimos</label>
+  <input type="text" class="form-control w-25" id="recoger">
+  <button class="btn btn-outline-dark" id="btnEnviar">Enviar</button><br>
+  <p id="mostrar12"></p>
+  <script>
+
+    let mostrar12 = document.querySelector("#mostrar12");
+    recoger12 = document.querySelector("#recoger");
+
+    btnEnviar.addEventListener("click", () => {
+      let texto = recoger12.value;
+      texto = texto.trim();
+      if (texto.length > 10) {
+        let ultimos5 = texto.slice((texto.length - 5), texto.length);
+
+        mostrar12.innerHTML = ultimos5;
+      }
+
+    })
+  </script>
+</body>
+
+</html>
