@@ -130,16 +130,17 @@ function recogerDatos() {
   let cognom4 = formulari4.elements["cognom4"].value;
   let edat4 = formulari4.elements["edat4"].value;
   let dni4 = formulari4.elements["dni4"].value;
-  const nouUsuari = {
+  let nouUsuari = {
     "Nom": nom4, "Cognom": cognom4, "Edat": edat4, "DNI": dni4
   }
- /*  personas.push(nouUsuari);
-    mostrar4.innerHTML = JSON.stringify(personas); */
-    return nouUsuari;
+  personas.push(nouUsuari);
+  mostrar4.innerHTML = JSON.stringify(personas);
+  nouUsuari = "";
+
 }
 
 //validacions
-/* function validarText(item) {
+/* function validarText() {
   let validacio;
   if (item.length < 3 || item.length > 20 || item.match(/\d/) || item === "") {
     validacio = false;
@@ -162,46 +163,44 @@ function validarDNI(item) {
     validacio = false;
   }
   return validacio;
-} */
+}
 
-  /* function validació() {
-  if (!validarText(nom4)) {
+function validació(item) {
+  if (!validarText(item.nom4)) {
     document.querySelector("#errorNom").innerHTML = `<p class="alert alert-danger" role="alert> Error introduïnt el nom </p>`
 
   }
-  else if (!validarText(cognom4)) {
+  else if (!validarText(item.cognom4)) {
     document.querySelector("#errorCognom").innerHTML = `<p class="alert alert-danger" role="alert> Error introduïnt el cognom </p>`
   }
-  else if (!validarEdat(edat4)) {
+  else if (!validarEdat(item.edat4)) {
     document.querySelector("#errorEdat").innerHTML = `<p class="alert alert-danger" role="alert> Error introduïnt l'edat</p>`
   }
-  else if (!validarDNI(dni4)) {
+  else if (!validarDNI(item.dni4)) {
     document.querySelector("#errorDni").innerHTML = `<p class="alert alert-danger" role="alert> Error introduïnt el DNI</p>`
   } else {
-    let persona = {
-      "Nom": nom4, "Cognom": cognom4, "Edat": edat4, "DNI": dni4
-    }
-    personas.push(persona);
+
+    personas.push(nouUsuari);
     mostrar4.innerHTML = JSON.stringify(personas);
   }
-} */
+}
+ */
 
-
-function limpiar(){
- formulari4.elements["nom4"].value="";
-formulari4.elements["cognom4"].value="";
-formulari4.elements["edat4"].value="";
-formulari4.elements["dni4"].value="";
+function limpiar() {
+  formulari4.elements["nom4"].value = "";
+  formulari4.elements["cognom4"].value = "";
+  formulari4.elements["edat4"].value = "";
+  formulari4.elements["dni4"].value = "";
 }
 
-btn4.onclick = () => {
+btn4.onclick = (event) => {
+  event.preventDefault();
   recogerDatos();
-  /*  validació(); */
-  mostrar4.innerHTML = JSON.stringify(personas);
   limpiar();
 }
 
-btnBorrarUltim.onclick = () => {
+btnBorrarUltim.onclick = (event) => {
+  event.preventDefault();
   personas.splice(personas.length - 1);
   mostrar4.innerHTML = JSON.stringify(personas);
   if (mostrar4.innerHTML.length < 3) {
@@ -209,7 +208,8 @@ btnBorrarUltim.onclick = () => {
   }
 };
 
-btnBorrarTots.onclick = () => {
+btnBorrarTots.onclick = (event) => {
+  event.preventDefault();
   personas.splice(0);
   mostrar4.innerHTML = JSON.stringify(personas);
   if (mostrar4.innerHTML.length < 3) {
@@ -218,5 +218,13 @@ btnBorrarTots.onclick = () => {
 };
 
 
+//EJERCICIO 6 Y 7
 
+const menuDilluns = document.formDilluns;
+const menuDimarts = document.formDimarts;
+const menuDimecres = document.formDimecres;
+const menuDijous = document.formDijous;
+const menuDivendres = document.formDivendres;
+const menuSemanal = [];
+menuSemanal.push(menuDilluns, menuDimarts, menuDimecres, menuDijous, menuDivendres);
 

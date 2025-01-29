@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <title>Validar Forms</title>
+</head>
+
+<body>
+  <main class="container pt-5 p-5 border border-dark rounded mt-3 mb-3container-field">
+    <form method="POST" id="firstContact" name="firstContact" action="#">
+      <div class="form-group">
+        <label class="label-form" for="miEdad">Fecha de nacimiento</label>
+        <input class="form-control mb-3 bg-light" type="date" name="miEdad" id="miEdad">
+        <small id="mostrar1" class="text-muted"></small>
+      </div>
+      <div class="form-group">
+        <label class="label-form" for="dni">DNI</label>
+        <input class="form-control mb-3 bg-light" type="text" name="dni" id="dni">
+        <small id="mostrar2" class="text-muted"></small>
+      </div>
+      <div id="error"></div>
+      <button type="submit" name="enviar" id="enviar" class="btn btn-primary">Enviar</button>
+      <button type="button" name="borrar" id="borrar" class="btn btn-danger ">Borrar</button>
+    </form>
+  </main>
+  <script src="JS/app.js"></script>
+</body>
+
+</html>

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/estilos.css">
   <title>Exercicis T3_2</title>
 </head>
 
@@ -52,7 +53,7 @@
     <button class="btn btn-danger" id="btnLimpiar_Ej_Dos">Netejar</button><br><br>
     <div id="mostrar2"></div><br><br>
     <hr>
-    <h2 class="mb-3">Exercici nº3.</h2>
+    <h2 class="mb-3">Exercici nº4.</h2>
     <p class="fs-5">
       4.Escriu un html que ens permeti mitjançant una funció mostrar les dades d'un array associatiu d'una persona amb
       les
@@ -81,7 +82,7 @@
     <button type="reset" class="btn btn-danger">Netejar</button>
     <div id="mostrar3"></div><br><br>
     <hr>
-    <h2 class="mb-3">Exercici nº4.</h2>
+    <h2 class="mb-3">Exercici nº5.</h2>
     <p class="fs-5">
       Escriu un prrograma que ens permeti introduir en inputs de text, Nom, Cognoms, edat i DNI, validi els imputs i ho
       emmagatzemi en un array amb aquests índexs de posició. els mostri en un div, i permeti afegir tants persones com
@@ -109,12 +110,66 @@
           <p id="errorDni"></p>
         </div>
       </div>
+      <button class="btn btn-primary" id="btn_Ej_cuatro">Enviar Nou Usuari</button>
+      <button class="btn btn-danger" id="btnBorrarUltim">Borrar l'últim Usuari</button>
+      <button class="btn btn-danger" id="btnBorrarTots">Borrar Tots els Usuari</button>
     </form>
-    <button class="btn btn-primary" id="btn_Ej_cuatro">Enviar Nou Usuari</button>
-    <button class="btn btn-primary" id="btnBorrarUltim">Borrar l'últim Usuari</button>
-    <button class="btn btn-primary" id="btnBorrarTots">Borrar Tots els Usuari</button>
-
-    <div id="mostrar4"></div><br><br>
+    <div id="mostrar4"></div><br><br><br><br>
+    <h2 class="mb-3">Exercicis nº6-7.</h2>
+    <p class="fs-5">
+      Escriu un html que ens permeti entrar tots els plats d'un menú setmanal d'un restaurant, amb 5 primers, 5 segons i
+      5 postres:
+    </p>
+    <form action="#" name="formDilluns" method="POST" class="formularios">
+      <label class="label-form">Introduïu el menú del dilluns:</label>
+      <div class="filasInputs">
+        <input class="form-control mb-3 w-25 bg-light" type="text" placeholder="Primer plat" name="dillunsPrimer">
+        <input class="form-control mb-3 w-25 bg-light" type="text" type="text" class="form-control"
+          placeholder="Segon plat" name="dillunsSegon">
+        <input class="form-control mb-3 w-25 bg-light" type="text" type="text" class="form-control"
+          placeholder="Tercer plat" name="dillunsTercer">
+      </div>
+    </form>
+    <form action="#" name="formDimarts" method="POST" class="formularios">
+      <label class="label-form">Introduïu el menú del dimarts:</label>
+      <div class="filasInputs">
+        <input class="form-control mb-3 w-25 bg-light" type="text" placeholder="Primer plat" name="dimartsPrimer">
+        <input class="form-control mb-3 w-25 bg-light" type="text" type="text" class="form-control"
+          placeholder="Segon plat" name="dimartsSegon">
+        <input class="form-control mb-3 w-25 bg-light" type="text" type="text" class="form-control"
+          placeholder="Tercer plat" name="dimartsTercer">
+      </div>
+    </form>
+    <form action="#" name="formDimecres" method="POST" class="formularios">
+      <label class="label-form">Introduïu el menú del dimecres:</label>
+      <div class="filasInputs">
+        <input class="form-control mb-3 w-25 bg-light" type="text" placeholder="Primer plat" name="dimecresPrimer">
+        <input class="form-control mb-3 w-25 bg-light" type="text" type="text" class="form-control"
+          placeholder="Segon plat" name="dimecresSegon">
+        <input class="form-control mb-3 w-25 bg-light" type="text" type="text" class="form-control"
+          placeholder="Tercer plat" name="dimecresTercer">
+      </div>
+    </form>
+    <form action="#" name="formDijous" method="POST" class="formularios">
+      <label class="label-form">Introduïu el menú del dijous:</label>
+      <div class="filasInputs">
+        <input class="form-control mb-3 w-25 bg-light" type="text" placeholder="Primer plat" name="dijousPrimer">
+        <input class="form-control mb-3 w-25 bg-light" type="text" type="text" class="form-control"
+          placeholder="Segon plat" name="dijousSegon">
+        <input class="form-control mb-3 w-25 bg-light" type="text" type="text" class="form-control"
+          placeholder="Tercer plat" name="dijousTercer">
+      </div class="filasInputs">
+    </form>
+    <form action="#" name="formDivendres" method="POST" class="formularios">
+      <label class="label-form">Introduïu el menú del divendres:</label>
+      <div class="filasInputs">
+        <input class="form-control mb-3 w-25 bg-light" type="text" placeholder="Primer plat" name="divendresPrimer">
+        <input class="form-control mb-3 w-25 bg-light" type="text" type="text" class="form-control"
+          placeholder="Segon plat" name="divendresSegon">
+        <input class="form-control mb-3 w-25 bg-light" type="text" type="text" class="form-control"
+          placeholder="Tercer plat" name="divendresTercer">
+      </div>
+    </form>
   </main>
   <script src="JS/app.js"></script>
 </body>
