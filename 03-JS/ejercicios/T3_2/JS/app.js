@@ -125,7 +125,7 @@ const btnBorrarUltim = document.querySelector("#btnBorrarUltim");
 const btnBorrarTots = document.querySelector("#btnBorrarTots");
 
 let personas = [];
-function recogerDatos(item) {
+function recogerDatos() {
   let nom4 = formulari4.elements["nom4"].value;
   let cognom4 = formulari4.elements["cognom4"].value;
   let edat4 = formulari4.elements["edat4"].value;
@@ -133,7 +133,9 @@ function recogerDatos(item) {
   const nouUsuari = {
     "Nom": nom4, "Cognom": cognom4, "Edat": edat4, "DNI": dni4
   }
-  return nouUsuari;
+ /*  personas.push(nouUsuari);
+    mostrar4.innerHTML = JSON.stringify(personas); */
+    return nouUsuari;
 }
 
 //validacions
@@ -193,7 +195,7 @@ formulari4.elements["dni4"].value="";
 }
 
 btn4.onclick = () => {
-  recogerDatos(formulari4);
+  recogerDatos();
   /*  validació(); */
   mostrar4.innerHTML = JSON.stringify(personas);
   limpiar();
