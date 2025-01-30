@@ -225,6 +225,73 @@ const menuDimarts = document.formDimarts;
 const menuDimecres = document.formDimecres;
 const menuDijous = document.formDijous;
 const menuDivendres = document.formDivendres;
-const menuSemanal = [];
-menuSemanal.push(menuDilluns, menuDimarts, menuDimecres, menuDijous, menuDivendres);
+const btn7 = document.querySelector("#btn_Ej_siete");
+const mostrar7 = document.querySelector("#mostrar7")
+const menuSemanal = [menuDilluns, menuDimarts, menuDimecres, menuDijous, menuDivendres];
 
+console.log(menuSemanal[0].elements[1])
+
+let id=0;
+let platos=[];
+
+function crearMenuSemanal() {
+  for (let i = 0; i < menuSemanal.length; i++) {
+    const menuDiario = menuSemanal[i];
+    for (let y = 0; y < menuDiario.elements.length; y++) {
+      id++;
+      const plato = menuDiario.elements[y];
+     platos.push(plato.value);
+    }
+  }
+}
+function mostrar(){
+  const tabla =`<table>
+        <thead>
+            <tr>
+                <th>Día</th>
+                <th>Primer plat</th>
+                <th>Segon plat</th>
+                <th>Postre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lunes</td>
+                <td>${platos[1]}</td>
+                <td>${platos[2]}</td>
+                <td>${platos[3]}</td>
+            </tr>
+            <tr>
+                <td>Martes</td>
+                <td>${platos[4]}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Miércoles</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Jueves</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Viernes</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+  `
+  mostrar7.innerHTML=tabla;
+}
+
+btn7.onclick =()=>{
+  crearMenuSemanal()
+  mostrar();
+}

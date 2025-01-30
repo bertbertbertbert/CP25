@@ -1,10 +1,10 @@
 .formularios{
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  width: 90%;
 }
-.formularios label, input{
+.formularios>label, 
+.formularios>input{
   margin-right: 10px;
   width: 25%;
 }
@@ -12,5 +12,5 @@
 .filasInputs{
   display: flex;
   width: 100%;
-  justify-content:center  
+  justify-content: space-between 
 }
