@@ -220,33 +220,32 @@ btnBorrarTots.onclick = (event) => {
 
 //EJERCICIO 6 Y 7
 
-const menuDilluns = document.formDilluns;
-const menuDimarts = document.formDimarts;
-const menuDimecres = document.formDimecres;
-const menuDijous = document.formDijous;
-const menuDivendres = document.formDivendres;
+let menuDilluns = document.formDilluns;
+let menuDimarts = document.formDimarts;
+let menuDimecres = document.formDimecres;
+let menuDijous = document.formDijous;
+let menuDivendres = document.formDivendres;
 const btn7 = document.querySelector("#btn_Ej_siete");
-const mostrar7 = document.querySelector("#mostrar7")
-const menuSemanal = [menuDilluns, menuDimarts, menuDimecres, menuDijous, menuDivendres];
+const btnMdf7 = document.querySelector("#btn_Mdf_Ej_siete");
+let mostrar7 = document.querySelector("#mostrar7")
+let menuSemanal = [menuDilluns, menuDimarts, menuDimecres, menuDijous, menuDivendres];
 
 console.log(menuSemanal[0].elements[1])
 
-let id=0;
-let platos=[];
+let platos = [];
 
 function crearMenuSemanal() {
   for (let i = 0; i < menuSemanal.length; i++) {
     const menuDiario = menuSemanal[i];
     for (let y = 0; y < menuDiario.elements.length; y++) {
-      id++;
       const plato = menuDiario.elements[y];
-     platos.push(plato.value);
+      platos.push(plato.value);
     }
   }
 }
-function mostrar(){
-  const tabla =`<table>
-        <thead>
+function mostrar() {
+  const tabla = `<table class="table">
+        <thead class="thead-dark">
             <tr>
                 <th>Día</th>
                 <th>Primer plat</th>
@@ -257,41 +256,46 @@ function mostrar(){
         <tbody>
             <tr>
                 <td>Lunes</td>
+                <td>${platos[0]}</td>
                 <td>${platos[1]}</td>
                 <td>${platos[2]}</td>
-                <td>${platos[3]}</td>
             </tr>
             <tr>
                 <td>Martes</td>
+                <td>${platos[3]}</td>
                 <td>${platos[4]}</td>
-                <td></td>
-                <td></td>
+                <td>${platos[5]}</td>
             </tr>
             <tr>
                 <td>Miércoles</td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>${platos[6]}</td>
+                <td>${platos[7]}</td>
+                <td>${platos[8]}</td>
             </tr>
             <tr>
                 <td>Jueves</td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>${platos[9]}</td>
+                <td>${platos[10]}</td>
+                <td>${platos[11]}</td>
             </tr>
             <tr>
                 <td>Viernes</td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>${platos[12]}</td>
+                <td>${platos[13]}</td>
+                <td>${platos[14]}</td>
             </tr>
         </tbody>
-    </table>
+    </table><br>
   `
-  mostrar7.innerHTML=tabla;
+  mostrar7.innerHTML = tabla;
 }
 
-btn7.onclick =()=>{
+btn7.onclick = () => {
   crearMenuSemanal()
   mostrar();
 }
+btnMdf7.onclick = () => {
+
+}
+//queda validar inputs y hacer funcion para modificar 
+

@@ -44,10 +44,7 @@ const edad = () => {
   let fechaNacimiento = form.miEdad.value;
   let fechaNace = new Date(fechaNacimiento);
   let fechaActual = new Date();
-
   let mi_edad = Math.floor((fechaActual - fechaNace) / (365.25 * 24 * 60 * 60 * 1000));
-
-
   if (mi_edad >= 18 && mi_edad <= 100) {
     return true;
   } else {

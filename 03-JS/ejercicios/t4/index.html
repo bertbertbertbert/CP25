@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/formularis.css">
+  <title>ejecicio T4 || Alberto Hernández </title>
+</head>
+
+<body>
+  <form class="form-control" action="#" name="#formulari" method="POST">
+    <label>usuario: </label>
+    <input class=" mb-3 bg-light" type="text" placeholder="inputName" name="nombre"><br>
+    <label>Teléfono: </label>
+    <input class=" mb-3 bg-light" type="tel" placeholder="inputTel" name="telefono"><br>
+    <label>Nacimiento dia: </label>
+    <input class=" mb-3 bg-light" type="text" placeholder="inputDia" name="dia">
+    <label>mes: </label>
+    <input class=" mb-3 bg-light" type="text" placeholder="inputMes" name="mes">
+    <label>año: </label>
+    <input class=" mb-3 bg-light" type="text" placeholder="inputAño" name="año"><br>
+    <label>email</label>
+    <input class=" mb-3 bg-light" type="email" placeholder="inputEmail" name="email"><br>
+    <label>DNI</label>
+    <input class=" mb-3 bg-light" type="text" placeholder="inputDNI" name="dni"><br>
+    <label>Acepto condiciones</label>
+    <input type="radio" name="condiciones" required><br>
+    <button type="button" id="btnRegistrate" name="btnRegistrate">Regístrate</button>
+    <button type="button" id="btnLimpiar" name="btnLimpiar">Limpiar Formulario</button>
+    <button type="button" id="btnGuardar" name="btnGuardar">Guardar Datos</button>
+    <button type="button" id="btnRecuperar" name="btnRecuperar">Recuperar Datos</button><br>
+    <textarea name="areaTexto" id="areaTexto"></textarea>
+  </form>
+  <script src="js/formularis.js"></script>
+</body>
+
+</html>
