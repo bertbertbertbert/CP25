@@ -1,0 +1,13 @@
+.inputs{
+    width: 50%;
+    
+    display: flex;
+    justify-content: space-between;
+}
+.inputs>div{
+    width: 3rem;
+    margin: 1rem;
+    font-size: 3rem;
+    text-align: center;
+    background-color: aqua;
+}

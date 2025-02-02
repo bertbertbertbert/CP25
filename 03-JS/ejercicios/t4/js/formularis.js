@@ -2,13 +2,15 @@ const form = document.formulari;
 const mostrar = document.querySelector("#areaTexto");
 const btnRegistro = document.querySelector("#btnRegistrate");
 const btnGuardar = document.querySelector("#btnGuardar");
+const btnRecuperar = document.querySelector("#btnRecuperar");
+const btnLimpiar = document.querySelector("#btnLimpiar");
 const dniPattern = /^[XYZ]?\d{7,8}[A-Z]{1}$/;
 const emailPattern = /^[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}$/;
 
+btnGuardar.disabled= true;
+
 //funcion, enviar/no enviar si hay algun false
 btnRegistro.addEventListener("click" /* "submit" */, (event) => {
-
-  event.preventDefault();
   const vNombre = nombre();
   const vEdad = edad();
   const vTel = telefono();
@@ -17,12 +19,12 @@ btnRegistro.addEventListener("click" /* "submit" */, (event) => {
   const vConsent = consent();
   if (!vNombre || !vEdad || !vTel || !vEmail || !vDni || !vConsent) {
     event.preventDefault();
-    mostrar.innerHTML = "Datos introducidos incorrectamente"
+    mostrar.innerHTML = "Datos introducidos incorrectamente";
     mostrar.style.color = "red";
   } else {
-    mostrar.innerHTML = "Datos introducidos incorrectamente"
+    mostrar.innerHTML = "Datos introducidos correctamente";
     mostrar.style.color = "green";
-
+    
   }
 });
 
@@ -53,7 +55,7 @@ const edad = () => {
   if (isNaN(dia) || dia.length === "" || isNaN(mes) || mes === "" || isNaN(anio) || dia === "" || edadUsuario < 18 || edadUsuario > 99) {
     return false;
   } else {
-    true
+    return true
   }
 }
 
@@ -166,20 +168,72 @@ const pasaValor = (event) => {
   }
 };
 
-/* btnGuardar.onclick = () => {
- //posible manera de recoger los valores y de cada input y almacenarlos en una cookie
- console.log(form.elements[0].value); así llegamos al valor de cada input, lo recorremos con un for y para cada uno creamos una cookie
- podemos escribir una frase plantilla donde una parte sea el name y así creamos las cookies diferentes. las añadimos a un array (const) en orden.
- luego la podemos restaurar con otro for pero haciendo la inversa. 
- si no recoge valor el valor debe ser un =""(cadena vacia);
-} */
-
-for (let i = 0; i < form.elements.length; i++) {
-  if (form.elements[i].name && form.elements[i].name !== "condiciones")
-    document.cookie = "cookie_for" + form.elements[i].name + "_is=" + form.elements[i].value + "; path=/;";
-
+function habilitarBtnGuardar(){
+  if(nombre() && telefono() && edad() && email() && dni()){
+    btnGuardar.disabled= false;
+  }else{
+    btnGuardar.disabled=true;
+  }
 }
+
+
 const listeners = [form.nombre, form.telefono, form.email, form.dni];
 listeners.forEach((listener) => {
   listener.addEventListener("keyup", pasaValor);
-})
+  listener.addEventListener("keyup", habilitarBtnGuardar);
+});
+
+
+//funciones cookies
+function cookiesStringToArray() {
+  let cookiesArray = document.cookie.split(";");
+  return cookiesArray;
+}
+
+btnGuardar.onclick = () => {
+  for (let i = 0; i < form.elements.length; i++) {
+    if (form.elements[i].name && form.elements[i].name !== "condiciones" &&form.elements[i].name !== "btnGuardar")
+      if (form.elements[i].value === "") {
+        document.cookie = "cookie_for" + form.elements[i].name + "_is=" + "" + ";";
+      } else {
+        document.cookie = "cookie_for" + form.elements[i].name + "_is=" + form.elements[i].value + ";";
+      }
+  }
+  alert("Sus datos se han guardado satisfactoriamente");
+  location.reload();
+}
+
+btnRecuperar.onclick=() =>{
+  let cookies = cookiesStringToArray();
+
+  for(let i=0; i<cookies.length; i++){
+    if (form.elements[i].name && form.elements[i].name !== "condiciones"){
+      let cookie=cookies[i];
+      let cookieValue=cookie.split("=")[1];
+      form.elements[i].value=cookieValue;
+    }else{
+      alert="Error al recuperar los datos";
+    }
+  }
+}
+
+btnLimpiar.onclick = () => {
+  let cookies = cookiesStringToArray();
+
+  if(cookies==""){
+    alert("No hay datos guardados")
+
+  }else{let confimrar = confirm("Vas a borrar tus datos. Estás seguro/a?");
+
+    if(confimrar){
+      for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i];
+        let cookieSpearada = cookie.split("=");
+        let cookieNombre = cookieSpearada[0].trim();
+        document.cookie = cookieNombre + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/03-JS/ejercicios/t4;";
+        console.log("Borrada cookie:", cookieNombre);}
+        alert("Sus datos se han borrado sadisfactoriamente");
+    }
+  }
+  window.location.reload();
+}
