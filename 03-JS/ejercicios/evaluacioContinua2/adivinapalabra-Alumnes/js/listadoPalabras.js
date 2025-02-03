@@ -78,8 +78,9 @@ const listado = [
 ];
 
 
-let numRandom = Math.floor(Math.random()*20);
+let numRandom = Math.floor(Math.random()*19);
 var palabraAdivinar = listado[numRandom];
+
 
 var palabra= palabraAdivinar.palabra;
 var pista = palabraAdivinar.pista;

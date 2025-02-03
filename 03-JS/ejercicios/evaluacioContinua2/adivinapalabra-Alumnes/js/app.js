@@ -1,43 +1,42 @@
 var resetBtn = document.querySelector(".reset-btn");
 const divPadre = document.querySelector(".inputs");
 var inputLetra = document.querySelector(".lletra");
-var mostrarPista = document.querySelectorAll(".pista span");
-let vidas = document.querySelector(".restantes span")
+var mostrarPista = document.querySelector(".pista span");
+let mostrarVidas = document.querySelector(".restantes span")
 
 /* function empezarJuego(){ */
-vidas=7;
-const listaDivs=[];
-inputLetra.focus();
 
+let vidas=7;
+mostrarVidas.innerHTML=vidas;
+mostrarPista.innerHTML=pista;
+inputLetra.focus();
+const listaDivs=[];
 for (let i = 0; i < arrayPalabra.length; i++) {
 	const div = document.createElement("div");
-	const letra = document.createTextNode(arrayPalabra[i]);
+	const letra = document.createTextNode(arrayPalabra[i]); 
 
-    div.appendChild(letra);
+  div.appendChild(letra); 
 	divPadre.appendChild(div);   
-
-    div.style.visibility = "hidden";
     listaDivs.push(div);
 }
-/* }  */
 
 function compararLetras() {
+    
     let letraIntroducida = inputLetra.value;  
-
+    let letraEncontrada=false;
     for(let i=0; i<arrayPalabra.length; i++){
 
     if (arrayPalabra[i]===letraIntroducida){
-       listaDivs[i].style.visibility="visible";
-    } else {
-        console.log("NO");
-        vidas--;
-        console.log(vidas);
+        letraEncontrada=true;
+       listaDivs[i].style.visibility="visible"; 
     }
-    
-    inputLetra.value = "";
 }
+inputLetra.value="";
+if(!letraEncontrada){
+    vidas--;
+   }
+   mostrarVidas.innerHTML=vidas;
 }
+
 resetBtn.onclick = ()=>location.reload();
 inputLetra.addEventListener("keyup", compararLetras); 
-
-
