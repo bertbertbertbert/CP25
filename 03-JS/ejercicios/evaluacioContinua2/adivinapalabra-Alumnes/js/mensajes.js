@@ -15,8 +15,10 @@ const msgError = [
   `Has fallado. La palabra correcta era "${palabra.toUpperCase()}".... y resulta que las cosas no son lo que parecen`,
 ];
 
-let numRandom1 = Math.floor(Math.random()*6);
-var mensageAcierto = msg[numRandom];
+let numRandom1 = Math.floor(Math.random() * 6);
+var mensageAcierto = msg[numRandom1];
 
-let numRandom2 = Math.floor(Math.random()*6);
-var mensageError = msgError[numRandom];
+let numRandom2 = Math.floor(Math.random() * 6);
+var mensageError = msgError[numRandom2];
+
+/* mensajeNode = document.createTextNode(mensageError) */
