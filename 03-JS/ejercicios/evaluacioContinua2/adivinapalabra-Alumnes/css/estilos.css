@@ -18,10 +18,10 @@ h1{
     flex-wrap: wrap;
 }
 .inputs>input{
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
     margin: 2rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
     background-color:bisque;
     border: 2px solid black;

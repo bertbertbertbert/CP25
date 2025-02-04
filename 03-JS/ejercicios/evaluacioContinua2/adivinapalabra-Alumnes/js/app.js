@@ -1,24 +1,14 @@
-var resetBtn = document.querySelector(".reset-btn");
-const divPadre = document.querySelector(".inputs");
-var inputLetra = document.querySelector(".lletra");
-var mostrarPista = document.querySelector(".pista span");
-let mostrarVidas = document.querySelector(".restantes span");
-let mostrarErrores = document.querySelector(".letrasErroneas span");
-let mostrarFinal = document.querySelector(".mostra");
-
-
-let vidasJugador = 7;
-let vidasPalabra = palabra.length
-mostrarVidas.innerHTML = vidasJugador;
-mostrarPista.innerHTML = pista;
-inputLetra.style.visibility = "visible";
-
+//valores iniciales generales del juego
 inputLetra.focus();
-inputLetra.value = "";
 const listaInputs = [];
 const letrasAcertadas = [];
 const todasLasIntroducidas = [];
+let vidasJugador = vidasJugadorSegunPalabra();
+let vidasPalabra =  palabra.length;
+mostrarVidas.innerHTML = vidasJugador;
+mostrarPista.innerHTML = pista;
 
+//añadimos contenedores de letras vacíos
 for (let i = 0; i < arrayPalabra.length; i++) {
   const input = document.createElement("input");
   const letra = arrayPalabra[i];
@@ -27,60 +17,57 @@ for (let i = 0; i < arrayPalabra.length; i++) {
   listaInputs.push(input);
 }
 
-/* function compararVidas(item) {
-  letraEncontrada = item;
-  if (!letraEncontrada) {
-    vidasJugador--;
-    mostrarErrores.innerHTML += letraIntroducida;
-  } else {
-    vidasPalabra--;
+//función para elegir número de intentos
+function vidasJugadorSegunPalabra(){
+  if(palabra.length<=7){
+    return 6;
+  }else{
+    return 8;
   }
-  
-} */
+};
 
+//funcion comparar letras y restar vida si es necesario
 function compararLetras() {
-
   let letraIntroducida = inputLetra.value.toUpperCase();
   let letraEncontrada = false;
-
 
   if (!todasLasIntroducidas.includes(letraIntroducida)) {
     todasLasIntroducidas.push(letraIntroducida);
     console.log(todasLasIntroducidas);
-
     for (let i = 0; i < arrayPalabra.length; i++) {
       if (arrayPalabra[i].includes(letraIntroducida)) {
         listaInputs[i].value = letraIntroducida;
-        letraEncontrada = true;
         letrasAcertadas.push(letraIntroducida);
+        letraEncontrada = true;
       }
     }
+    if (!letraEncontrada) {
+      vidasJugador--;
+      mostrarErrores.innerHTML += letraIntroducida;
+    }
+  }else{
+    alert("No puedes repetir letra!")
   }
 
   inputLetra.value = "";
-
-  if (!letraEncontrada && !todasLasIntroducidas.includes(letraIntroducida)) {
-    vidasJugador--;
-    mostrarErrores.innerHTML += letraIntroducida;
-  }
-
   mostrarVidas.innerHTML = vidasJugador;
+}
 
-  console.log(arrayPalabra, letrasAcertadas);
-
+//funcion que mira si el juego se ha acabado para mostrar resultado en cada keyup
+function acabaONo(){
   if (vidasJugador === 0) {
-    mostrarFinal.innerHTML = mensageError;
+    mostrarFinal.innerHTML = mensajeError;
     inputLetra.style.visibility = "hidden";
   }
   if (letrasAcertadas.length === arrayPalabra.length) {
-    mostrarFinal.innerHTML = mensageAcierto;
+    mostrarFinal.innerHTML = mensajeAcierto;
     inputLetra.style.visibility = "hidden";
 
   }
-
 }
-resetBtn.onclick = () => {
-  location.reload()
-};
 
+//reseteamos juego
+resetBtn.onclick = () => location.reload();
+//keyups listeners
 inputLetra.addEventListener("keyup", compararLetras);
+inputLetra.addEventListener("keyup",  acabaONo);

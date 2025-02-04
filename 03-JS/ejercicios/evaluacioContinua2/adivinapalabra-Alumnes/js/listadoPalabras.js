@@ -89,5 +89,6 @@ console.log(palabra);
 console.log(pista);
 
 var arrayPalabra = palabra.split("");
-console.log(arrayPalabra);
+console.log(arrayPalabra); 
+
 
