@@ -7,8 +7,10 @@ const btnLimpiar = document.querySelector("#btnLimpiar");
 const dniPattern = /^[XYZ]?\d{7,8}[A-Z]{1}$/;
 const emailPattern = /^[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}$/;
 
-btnGuardar.disabled= true;
 
+btnGuardar.disabled = true;
+btnRecuperar.disabled = true;
+btnLimpiar.disabled = true;
 //funcion, enviar/no enviar si hay algun false
 btnRegistro.addEventListener("click" /* "submit" */, (event) => {
   const vNombre = nombre();
@@ -24,7 +26,7 @@ btnRegistro.addEventListener("click" /* "submit" */, (event) => {
   } else {
     mostrar.innerHTML = "Datos introducidos correctamente";
     mostrar.style.color = "green";
-    
+
   }
 });
 
@@ -168,14 +170,33 @@ const pasaValor = (event) => {
   }
 };
 
-function habilitarBtnGuardar(){
-  if(nombre() && telefono() && edad() && email() && dni()){
-    btnGuardar.disabled= false;
-  }else{
-    btnGuardar.disabled=true;
+function habilitarBtnGuardar() {
+  if (nombre() && telefono() && edad() && email() && dni()) {
+    btnGuardar.disabled = false;
+
+  } else {
+    btnGuardar.disabled = true;
+
   }
 }
 
+function habilitarbtnRecuperar() {
+  if (document.cookie !== "") {
+    btnRecuperar.disabled = false;
+
+  } else {
+    btnRecuperar.disabled = true;
+  }
+}
+
+function habilitarbtnbtnLimpiar() {
+  if (document.cookie !== "") {
+    btnLimpiar.disabled = false;
+
+  } else {
+    btnLimpiar.disabled = true;
+  }
+}
 
 const listeners = [form.nombre, form.telefono, form.email, form.dni];
 listeners.forEach((listener) => {
@@ -191,49 +212,51 @@ function cookiesStringToArray() {
 }
 
 btnGuardar.onclick = () => {
+  const caducidad = new Date();
+  caducidad.setTime(caducidad.getTime() + (24 * 60 * 60 * 1000));
+  const caducidadCookie = "expires=" + caducidad.toUTCString();
   for (let i = 0; i < form.elements.length; i++) {
-    if (form.elements[i].name && form.elements[i].name !== "condiciones" &&form.elements[i].name !== "btnGuardar")
+    if (form.elements[i].name && form.elements[i].name !== "condiciones" && form.elements[i].name !== "btnGuardar")
       if (form.elements[i].value === "") {
         document.cookie = "cookie_for" + form.elements[i].name + "_is=" + "" + ";";
       } else {
-        document.cookie = "cookie_for" + form.elements[i].name + "_is=" + form.elements[i].value + ";";
+        document.cookie = "cookie_for" + form.elements[i].name + "_is=" + form.elements[i].value + ";" + caducidadCookie + ";path=/";
       }
   }
   alert("Sus datos se han guardado satisfactoriamente");
   location.reload();
 }
 
-btnRecuperar.onclick=() =>{
+btnRecuperar.onclick = () => {
   let cookies = cookiesStringToArray();
 
-  for(let i=0; i<cookies.length; i++){
-    if (form.elements[i].name && form.elements[i].name !== "condiciones"){
-      let cookie=cookies[i];
-      let cookieValue=cookie.split("=")[1];
-      form.elements[i].value=cookieValue;
-    }else{
-      alert="Error al recuperar los datos";
+  for (let i = 0; i < cookies.length; i++) {
+    if (form.elements[i].name && form.elements[i].name !== "condiciones") {
+      let cookie = cookies[i];
+      let cookieValue = cookie.split("=")[1];
+      form.elements[i].value = cookieValue;
+    } else {
+      alert = "Error al recuperar los datos";
     }
   }
 }
 
 btnLimpiar.onclick = () => {
   let cookies = cookiesStringToArray();
+  let confimrar = confirm("Vas a borrar tus datos. Estás seguro/a?");
 
-  if(cookies==""){
-    alert("No hay datos guardados")
-
-  }else{let confimrar = confirm("Vas a borrar tus datos. Estás seguro/a?");
-
-    if(confimrar){
-      for (let i = 0; i < cookies.length; i++) {
-        let cookie = cookies[i];
-        let cookieSpearada = cookie.split("=");
-        let cookieNombre = cookieSpearada[0].trim();
-        document.cookie = cookieNombre + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/03-JS/ejercicios/t4;";
-        console.log("Borrada cookie:", cookieNombre);}
-        alert("Sus datos se han borrado sadisfactoriamente");
+  if (confimrar) {
+    for (let i = 0; i < cookies.length; i++) {
+      let cookie = cookies[i];
+      let cookieSpearada = cookie.split("=");
+      let cookieNombre = cookieSpearada[0].trim();
+      document.cookie = cookieNombre + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
+      console.log("Borrada cookie:", cookieNombre);
     }
+    alert("Sus datos se han borrado sadisfactoriamente");
   }
-  window.location.reload();
+
+  location.reload();
 }
+habilitarbtnRecuperar();
+habilitarbtnbtnLimpiar();

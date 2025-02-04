@@ -78,7 +78,7 @@ const listado = [
 ];
 
 
-let numRandom = Math.floor(Math.random() * 19);
+/* let numRandom = Math.floor(Math.random() * 19);
 var palabraAdivinar = listado[numRandom];
 
 
@@ -89,6 +89,17 @@ console.log(palabra);
 console.log(pista);
 
 var arrayPalabra = palabra.split("");
-console.log(arrayPalabra); 
+console.log(arrayPalabra); */
 
 
+function eleccionAcertijo() {
+  let numRandom = Math.floor(Math.random() * 19);
+  let eleccion = listado[numRandom];
+  return eleccion
+}
+
+const acertijo = eleccionAcertijo();
+
+const palabra = acertijo.palabra.toUpperCase();
+const pista = acertijo.pista;
+const arrayPalabra = palabra.split("");
