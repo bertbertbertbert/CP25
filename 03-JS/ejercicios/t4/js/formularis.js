@@ -251,7 +251,6 @@ btnLimpiar.onclick = () => {
       let cookieSpearada = cookie.split("=");
       let cookieNombre = cookieSpearada[0].trim();
       document.cookie = cookieNombre + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
-      console.log("Borrada cookie:", cookieNombre);
     }
     alert("Sus datos se han borrado sadisfactoriamente");
   }
