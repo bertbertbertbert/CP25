@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/formularis.css">
+  <title>ejecicio T4 || Alberto Hernández </title>
+</head>
+
+<body>
+  <h1>Formulari</h1>
+  <form action="formlari.php" name="formulari" method="POST">
+    <label>usuario: </label><br>
+    <input class=" mb-3 bg-light" type="text" placeholder="Nombre" name="nombre" autofocus><br>
+    <label>Teléfono: </label><br>
+    <input class=" mb-3 bg-light" type="tel" placeholder="Teléfono" name="telefono"><br>
+    <label>Fecha de Nacimiento</label>
+    <div id="inputsEdad">
+      <div class="labelInput">
+        <label for="dia">Día</label><br>
+        <input class="mb-3 bg-light" type="text" placeholder="Día" name="dia" id="dia">
+      </div>
+      <div class="labelInput">
+        <label for="mes">Mes</label><br>
+        <input class="mb-3 bg-light" type="text" placeholder="Mes" name="mes" id="mes">
+      </div>
+      <div class="labelInput">
+        <label for="anio">Año</label><br> <!-- Etiqueta cerrada correctamente -->
+        <input class="mb-3 bg-light" type="text" placeholder="Año" name="anio" id="anio"><br>
+      </div>
+    </div>
+    <label>email</label><br>
+    <input class=" mb-3 bg-light" type="email" placeholder="Email" name="email"><br>
+    <label>DNI</label><br>
+    <input class=" mb-3 bg-light" type="text" placeholder="DNI" name="dni"><br>
+    <label>Acepto condiciones</label>
+    <input type="radio" name="condiciones" required><br><br>
+    <button class="btn btn-dark" type="submit" id="btnRegistrate">Regístrate</button>
+    <button class="btn btn-dark" type="button" name="btnGuardar" id="btnGuardar">Guardar Datos</button>
+    <button class="btn btn-warning" type="button" id="btnRecuperar">Recuperar Datos</button>
+    <button class="btn btn-danger" type="button" id="btnLimpiar">Borrar Datos</button>
+    <br><br>
+    <textarea id="areaTexto" disabled></textarea>
+  </form>
+  <script src="js/formularis.js"></script>
+</body>
+
+</html>

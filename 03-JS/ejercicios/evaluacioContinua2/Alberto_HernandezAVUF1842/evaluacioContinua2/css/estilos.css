@@ -1,0 +1,51 @@
+:root{
+  font-size: 1.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+  margin: 0 auto;
+  width: 70%;
+}
+h1{
+  text-align: center;
+}
+
+.inputs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.inputs>input{
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 2rem;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color:bisque;
+    border: 2px solid black;
+    box-shadow: 0px 0px 10px black;
+}
+
+.lletra{
+  opacity: 0;
+}
+
+button{
+  margin: 0 auto;
+  width: 100px;
+  font-size: .8rem;
+  cursor: pointer;
+  background-color: rgb(151, 234, 151);
+  border-radius: 20px;
+}
+
+
+@media (max-width: 500px) {
+ .inputs>input{
+  font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+ }
+}
