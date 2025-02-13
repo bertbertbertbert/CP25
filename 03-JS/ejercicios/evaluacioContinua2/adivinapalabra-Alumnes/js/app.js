@@ -29,6 +29,7 @@ function vidasJugadorSegunPalabra() {
   }
 };
 
+
 //función comparar letras y restar vida si es necesario
 function compararLetras() {
   let letraIntroducida = inputLetra.value.toUpperCase();
