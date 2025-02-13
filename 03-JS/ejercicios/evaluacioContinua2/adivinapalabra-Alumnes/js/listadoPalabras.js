@@ -77,29 +77,10 @@ const listado = [
   }
 ];
 
-
-/* let numRandom = Math.floor(Math.random() * 19);
-var palabraAdivinar = listado[numRandom];
-
-
-var palabra = palabraAdivinar.palabra.toUpperCase();
-var pista = palabraAdivinar.pista;
-
-console.log(palabra);
-console.log(pista);
-
-var arrayPalabra = palabra.split("");
-console.log(arrayPalabra); */
-
-
 function eleccionAcertijo() {
-  let numRandom = Math.floor(Math.random() * 19);
-  let eleccion = listado[numRandom];
-  return eleccion
+  let numRandom = Math.floor(Math.random() * 19); 
+  acertijo = listado[numRandom];
+  palabra = acertijo.palabra.toUpperCase(); 
+  arrayPalabra = palabra.split("");  
+  return acertijo;
 }
-
-const acertijo = eleccionAcertijo();
-
-const palabra = acertijo.palabra.toUpperCase();
-const pista = acertijo.pista;
-const arrayPalabra = palabra.split("");

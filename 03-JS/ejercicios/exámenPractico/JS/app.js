@@ -48,7 +48,7 @@ const jugar = (id) => {
     intentos--;
     error.style.color = "red";
     error.style.fontSize = "1.3rem"
-    error.innerHTML = `Has introducido el número ${id}, el número a acertar es más grande.  Te quedan ${intentos} intentos`
+    error.innerHTML = `Has introducido el número ${id}, el número a acertar es más grande. Te quedan ${intentos} intentos`
   } else {
     limpiar();
     error.innerHTML = "";
@@ -110,7 +110,7 @@ const introducirPrimerNumero = () => {
   inputUno.style.display = "block";
   btnUno.style.display = "block";
   limpiar();
-  mostrarDialogo.innerHTML = `Bienvenido ${nombre}. El juego consiste en lo siguiente: Tendrás que indicarnos un número del 1 al 10, después otro del 30 al 40 y en ese momento el juego seleccionará un número dentro del rango comprendido entre entre las dos cifras que has seleccionado. Tendrás 5 intentos para acertarlo. <br><br>`
+  mostrarDialogo.innerHTML = `Bienvenid@ ${nombre}. El juego consiste en lo siguiente: Tendrás que indicarnos un número del 1 al 10, después otro del 30 al 40 y en ese momento el juego seleccionará un número dentro del rango comprendido entre entre las dos cifras que has seleccionado. Tendrás 5 intentos para acertarlo. <br><br>`
   mostrarInstruccion.innerHTML = "Introduce un número del 1 al 10";
   let numero;
   numero = inputUno.value;

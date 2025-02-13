@@ -26,28 +26,27 @@ const indice = document.querySelector("#clave");
 const val = document.querySelector("#texto");
 const cajadatos = document.querySelector("#cajadatos");
 
-
 localStorage.setItem("now", Date.now());
 localStorage.getItem("now");
 console.log("now");
 
 const eliminarTodo = () => {
   if (confirm("Seguro?")) {
-    sessionStorage.clear();
+    localStorage.clear();  
     mostrar();
   }
 }
 
 const eliminar = (clave) => {
-  sessionStorage.removeItem(clave);
+  localStorage.removeItem(clave);  
   mostrar();
 }
 
 const mostrar = () => {
   cajadatos.innerHTML = `<div> <input type="button" onclick= "eliminarTodo()" value="Eliminar todo"> </div>`;
-  for (let f = 0; f < sessionStorage.length; f++) {
-    let valor = sessionStorage.getItem(sessionStorage.key(f));
-    let clave = sessionStorage.key(f);
+  for (let f = 0; f < localStorage.length; f++) {  
+    let valor = localStorage.getItem(localStorage.key(f));  
+    let clave = localStorage.key(f);  
     cajadatos.innerHTML += `<div> ${clave} - ${valor} <br> <input type="button" onclick="eliminar('${clave}')" value="Eliminar"> </div>`;
   }
 }
@@ -58,7 +57,7 @@ const iniciar = () => {
     let valor = val.value;
 
     if (clave && valor) {
-      sessionStorage.setItem(clave, valor);
+      localStorage.setItem(clave, valor);  
       indice.value = "";
       val.value = "";
       mostrar();
@@ -66,6 +65,7 @@ const iniciar = () => {
       alert("Por favor, ingrese tanto la clave como el valor.");
     }
   });
+  console.log(localStorage)
 };
 
 window.addEventListener("load", iniciar);

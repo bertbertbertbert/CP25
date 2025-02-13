@@ -61,18 +61,17 @@ button{
 
 #botones{
   margin: 0 auto;
-  padding-top: 50px;
+  /* padding-top: 50px; */
   width: 80%;
   height: fit-content;
-  /* font-size: 3rem; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 .botonesHijos{
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   font-size: 2rem;
 }
 #ganaste{

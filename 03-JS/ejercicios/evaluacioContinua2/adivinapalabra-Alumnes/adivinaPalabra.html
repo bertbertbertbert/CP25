@@ -11,9 +11,9 @@
 <body>
 
   <header>
-    <section class="contenedorIconos"><button class="iconos">NightMode</button><button
-        class="iconos">Zoom+</button><button class="iconos">Zoom-</button></section>
-    <h1>Palabra a adivinar</h1>
+    <section class="contenedorIconos"><button class="iconos btnContrasteAlto" tabindex="2">NightMode</button><button
+        class="iconos" tabindex="3">Zoom+</button><button class="iconos" tabindex="4">Zoom-</button></section>
+    <h1 tabindex="1">Adivina la Palabra</h1>
   </header>
   <main>
     <h2>¿Te atreves?</h2>
@@ -32,14 +32,16 @@
       </div>
       <div class="mostra"></div>
       <div id="boton">
-        <button class="reset-btn">Adivinar Palabra</button>
+        <button class="reset-btn" tabindex="">Adivinar Palabra</button>
       </div>
     </div>
   </main>
-  <script src="js/llamadasAlDOM.js"></script>
+  
+  <script src="js/inicioVariables.js"></script>
   <script src="js/listadoPalabras.js"></script>
   <script src="js/mensajes.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/accesibilidad.js"></script>
 </body>
 
 </html>

@@ -63,6 +63,7 @@ const iniciar = () => {
       alert("Por favor, ingrese tanto la clave como el valor.");
     }
   });
+  console.log(sessionStorage)
 };
 
 window.addEventListener("load", iniciar);

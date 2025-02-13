@@ -7,6 +7,10 @@ body{
   margin: 0 auto;
   width: 70%;
 }
+.contrasteAlto{
+background-color: black;
+color: white;
+}
 header{
   padding: 20px;
   display: flex;
