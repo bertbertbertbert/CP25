@@ -39,6 +39,8 @@ const volverJugar = () => {
 }
 
 const jugar = (id) => {
+  let botonClicado = document.querySelectorAll(".botonesHijos");
+  botonClicado[id-num1].style.backgroundColor = "red";
   if (id > aleatorio) {
     intentos--;
     error.style.color = "red";
