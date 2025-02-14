@@ -50,10 +50,10 @@ main{
 #btnNombre{
   display:block;
 }
-#btnUno, #inputUno, #btnDos, #inputDos{
+/* #btnUno, #inputUno, #btnDos, #inputDos{
   margin: o auto;
-  display: none;
-}
+
+} */
 
 button{
   cursor: pointer;

@@ -11,22 +11,25 @@ let final = document.querySelector("#ganaste");
 const introduccionDatos = document.querySelector("#introduccionDatos")
 const divPadre = document.querySelector("#botones");
 const contrasteAlto = document.querySelector("#contrasteAlto");
-var nombre;
-var num1;
-var num2;
+const array = [btnUno, inputUno, btnDos, inputDos];
+let nombre;
+let num1;
+let num2;
 let intentos;
-var aleatorio;
-arrayBotones = [];
-
+let aleatorio;
 
 const limpiar = () => {
   mostrarDialogo.innerHTML = "";
   mostrarInstruccion.innerHTML = "";
+  error.innerHTML = "";
+  final.innerHTML = "";
+  divPadre.innerHTML = "";
 }
 
 const crearBotones = () => {
   limpiar();
   introduccionDatos.style.display = "none";
+  divPadre.style.display = "block ";
   mostrarDialogo.innerHTML = `${nombre}, el nombre aleatorio está entre ${num1} y ${num2}`;
   for (let i = num1; i < num2 + 1; i++) {
     divPadre.innerHTML += `<button class="botonesHijos"; onclick="jugar(${i});"  id="${i}">${i}</button>`;
@@ -35,12 +38,20 @@ const crearBotones = () => {
 }
 
 const volverJugar = () => {
-  location.reload();
+  limpiar();
+  introduccionDatos.style.display = "block";
+  mostrarInstruccion.innerHTML = "Por favor, antes de empezar introduce tu nombre:";
+  intentos = 5;
+  array.forEach(elemento => {
+    elemento.style.display = "none";
+  });
+  inputNombre.style.display = "block";
+  btnNombre.style.display = "block";
 }
 
 const jugar = (id) => {
   let botonClicado = document.querySelectorAll(".botonesHijos");
-  botonClicado[id-num1].style.backgroundColor = "red";
+  botonClicado[id - num1].style.backgroundColor = "red";
   if (id > aleatorio) {
     intentos--;
     error.style.color = "red";
@@ -80,9 +91,7 @@ const numeroAleatorio = () => {
   aleatorio = Math.floor(Math.random() * (max + 1 - min)) + min;
   console.log(aleatorio)
   crearBotones();
-  return aleatorio;
 }
-
 
 const introducirSegundoNumero = () => {
 
@@ -104,7 +113,6 @@ const introducirSegundoNumero = () => {
     }
   }
 }
-
 
 const introducirPrimerNumero = () => {
   btnNombre.style.display = "none";
@@ -156,4 +164,10 @@ btnDos.onclick = () => {
   introducirSegundoNumero();
 }
 
-window.onload = () => { mostrarInstruccion.innerHTML = "Por favor, antes de empezar introduce tu nombre:"; intentos = 5; };
+window.onload = () => {
+  array.forEach(elemento => {
+    elemento.style.display = "none";
+  });
+  mostrarInstruccion.innerHTML = "Por favor, antes de empezar introduce tu nombre:";
+  intentos = 5;
+};
