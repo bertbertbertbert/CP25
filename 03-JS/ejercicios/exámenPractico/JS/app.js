@@ -1,5 +1,6 @@
 let mostrarDialogo = document.querySelector("#bienvenido");
 let mostrarInstruccion = document.querySelector("#mostra");
+let mostrarInstruccion2 = document.querySelector("#mostra2");
 const inputUno = document.querySelector("#inputUno");
 const btnUno = document.querySelector("#btnUno");
 const inputDos = document.querySelector("#inputDos");
@@ -21,6 +22,7 @@ let aleatorio;
 const limpiar = () => {
   mostrarDialogo.innerHTML = "";
   mostrarInstruccion.innerHTML = "";
+  mostrarInstruccion2.innerHTML="";
   error.innerHTML = "";
   final.innerHTML = "";
   divPadre.innerHTML = "";
@@ -28,6 +30,7 @@ const limpiar = () => {
 
 const crearBotones = () => {
   limpiar();
+  divPadre.style.display="block";
   introduccionDatos.style.display = "none";
   divPadre.style.display = "block ";
   mostrarDialogo.innerHTML = `${nombre}, el nombre aleatorio está entre ${num1} y ${num2}`;
@@ -39,14 +42,19 @@ const crearBotones = () => {
 
 const volverJugar = () => {
   limpiar();
+  mostrarDialogo.innerHTML="SIGUE LOS PASOS QUE TE INDIQUE"
+  inputUno.value="";
+  inputDos.value="";
+  btnUno.disabled = false;
   introduccionDatos.style.display = "block";
+  inputNombre.style.display = "block";
+  btnNombre.style.display = "block";
   mostrarInstruccion.innerHTML = "Por favor, antes de empezar introduce tu nombre:";
-  intentos = 5;
   array.forEach(elemento => {
     elemento.style.display = "none";
   });
-  inputNombre.style.display = "block";
-  btnNombre.style.display = "block";
+  divPadre.style.display="none";
+  intentos = 5;
 }
 
 const jugar = (id) => {
@@ -87,14 +95,13 @@ const jugar = (id) => {
 const numeroAleatorio = () => {
   let min = num1;
   let max = num2;
-  console.log(min, max)
   aleatorio = Math.floor(Math.random() * (max + 1 - min)) + min;
   console.log(aleatorio)
   crearBotones();
 }
 
 const introducirSegundoNumero = () => {
-
+  inputDos.focus();
   let numero;
   numero = inputDos.value;
   numero = parseInt(numero);
@@ -115,6 +122,7 @@ const introducirSegundoNumero = () => {
 }
 
 const introducirPrimerNumero = () => {
+  inputUno.focus();
   btnNombre.style.display = "none";
   inputNombre.style.display = "none";
   inputUno.style.display = "block";
@@ -132,9 +140,11 @@ const introducirPrimerNumero = () => {
     } else {
       error.innerHTML = "";
       num1 = numero;
+      btnUno.disabled=true;
       inputDos.style.display = "block";
       btnDos.style.display = "block";
-      mostrarInstruccion.innerHTML = "Introduce un número del 30 al 40";
+      inputDos.value = ""; 
+      mostrarInstruccion2.innerHTML = "Introduce un número del 30 al 40";
       return true;
     }
   }
@@ -146,13 +156,11 @@ const comprobarNombre = () => {
     error.innerHTML = "Nombre no válido, vuelve a probar.";
     return false
   } else
-    error.innerHTML = ""
-  inputUno.value = "";
+  inputUno.value = ""; 
   introducirPrimerNumero();
   return true;
 }
 
-contrasteAlto.onclick = () => document.body.classList.toggle("contrasteAlto");
 
 btnNombre.onclick = () => {
   comprobarNombre()
@@ -164,10 +172,27 @@ btnDos.onclick = () => {
   introducirSegundoNumero();
 }
 
+document.addEventListener("keydown", function(event){
+  if (event.target.classList.contains('botonesHijos')) {
+    return; 
+  }
+  if(event.key==="Enter"){
+  let arrayBotones = [btnNombre, btnUno, btnDos];
+  for (boton of arrayBotones){
+    if (boton.style.display==="block" && !boton.disabled){
+      boton.click();
+    }
+  }
+}
+})
+
 window.onload = () => {
-  array.forEach(elemento => {
-    elemento.style.display = "none";
-  });
+  divPadre.style.display="none";
   mostrarInstruccion.innerHTML = "Por favor, antes de empezar introduce tu nombre:";
+  btnNombre.style.display = "block";
   intentos = 5;
+  inputUno.value="";
+  inputDos.value="";
+  inputNombre.focus();  
+  btnNombre.disabled = false;
 };

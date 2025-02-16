@@ -9,31 +9,32 @@
   <link rel="stylesheet" href="css/estilos.css">
   <title>Adivina un número</title>
 </head>
-
 <body>
   <header>
-    <h1 tabindex="1">Adivina el número que he pensado</h1>
-    <section style="" id="contenedorBotonesHeader">
-      <button id="contrasteAlto"><img id="contrasteAlto" src="img/contraste.png" alt="Icono contraste"></button>
-      <button id="contrasteAlto">Zoom+</button>
-      <button id="contrasteAlto">Zoom-</button>
+    <h1>Adivina el número que he pensado</h1>
+    <section id="contenedorBotonesHeader">
+      <button tabindex="7" id="contrasteAlto"><img id="contrasteAlto" src="img/contraste.png" alt="Icono contraste"  aria-label="Activar/desactivar contraste alto"></button>
+      <button class="btnZoomIn" tabindex="8" aria-label="Aumentar zoom">Zoom+</button>
+      <button  class="btnZoomOut" tabindex="9" aria-label="Disminuir zoom">Zoom-</button>
     </section>
   </header>
-  <main>
-    <div id="bienvenido"></div><br>
-    <div id="mostra"></div>
-    <div id="introduccionDatos">
-      <input tabindex="3" type="text" id="inputNombre">
-      <button tabindex="2" class="btn btn-primary" id="btnNombre" type="button">Continuar</button>
-      <input type="text" id="inputUno">
-      <button tabindex="4" id="btnUno" class="btn btn-primary" type="button">Continuar</button><br>
-      <input type="text" id="inputDos">
-      <button tabindex="5" class="btn btn-primary" id="btnDos" type="button">Continuar</button>
-    </div>
-    <div id="botones"></div>
-    <div id="error"></div>
-    <div id="ganaste"></div>
+  <main id="main"> 
+    <p class="zoom" id="bienvenido">SIGUE LOS PASOS QUE TE INDIQUE</p>
+    <section id="introduccionDatos">
+      <p class="zoom" id="mostra"></p>
+      <input tabindex="1" type="text" id="inputNombre">
+      <button tabindex="2" class="btn btn-primary" id="btnNombre" type="button" aria-label="Comprobar Nombre">Continuar</button>
+      <input tabindex="3" type="text" id="inputUno">
+      <button tabindex="4" id="btnUno" class="btn btn-primary" type="button" aria-label="Comprobar Primer Número">Continuar</button><br>
+      <p class="zoom" id="mostra2"></p>
+      <input tabindex="5" type="text" id="inputDos">
+      <button tabindex="6" class="btn btn-primary" id="btnDos" type="button" aria-label="Comprobar Segundo Número">Continuar</button>
+    </section>
+    <p id="botones"></p><br>
+    <p class="zoom" id="error"></p>
+    <p id="ganaste"></p>
+  </main>
     <script src="js/app.js"></script>
+    <script src="JS/accesibilidad.js"></script>
 </body>
-
 </html>

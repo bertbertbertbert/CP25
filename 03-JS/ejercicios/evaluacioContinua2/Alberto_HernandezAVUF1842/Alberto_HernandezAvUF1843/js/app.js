@@ -34,6 +34,12 @@ const compararLetras = function () {
 
 const acabaONo = function (mensajeAcierto, mensajeError) { 
   if (vidasJugador === 0) {
+    console.log(letrasAcertadas);
+    for(let i; i<arrayPalabra.length; i++){
+      if(!letrasAcertadas.includes(arrayPalabra[i])){
+        listaInputs[i].style.boxShadow = "0px 0px 20px red";    
+        }
+    }
     mostrarFinal.innerHTML = mensajeError;
     inputLetra.style.visibility = "hidden";
     juegoAcabado = true;
