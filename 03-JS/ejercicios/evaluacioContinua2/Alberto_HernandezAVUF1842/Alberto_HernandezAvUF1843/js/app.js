@@ -29,17 +29,18 @@ const compararLetras = function () {
   inputLetra.value = "";
   mostrarVidas.innerHTML = vidasJugador;
   inputLetra.focus();
-
+  
 }
 
 const acabaONo = function (mensajeAcierto, mensajeError) { 
   if (vidasJugador === 0) {
-    console.log(letrasAcertadas);
-    for(let i; i<arrayPalabra.length; i++){
-      if(!letrasAcertadas.includes(arrayPalabra[i])){
-        listaInputs[i].style.boxShadow = "0px 0px 20px red";    
-        }
+
+   for(let i=0; i<listaInputs.length; i++){
+    if(listaInputs[i].value===""){
+      listaInputs[i].style.boxShadow="0px 0px 20px red";
+      listaInputs[i].value=arrayPalabra[i];
     }
+   }
     mostrarFinal.innerHTML = mensajeError;
     inputLetra.style.visibility = "hidden";
     juegoAcabado = true;
