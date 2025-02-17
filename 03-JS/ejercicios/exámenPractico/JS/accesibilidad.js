@@ -3,7 +3,9 @@ const btnZoomIn = document.querySelector(".btnZoomIn");
 const btnZoomOut = document.querySelector(".btnZoomOut");
 
 
-contrasteAlto.onclick = () => document.body.classList.toggle("contrasteAlto");
+contrasteAlto.onclick = () => {
+    document.body.classList.toggle("contrasteAlto");
+}
 
 console.log(textosConZoom);
 
