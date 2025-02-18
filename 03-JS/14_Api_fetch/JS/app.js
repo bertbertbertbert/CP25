@@ -1,9 +1,9 @@
 import { btn1, mostra, obtenerTexto } from "./texto.js";
 import { btn2, obtenerHTML, obtenerDatos } from "./unEmpleado.js";
-import { btn3, obtenerHTML as obtenerHTML2, obtenerDatos as obtenerDatos2 } from "./empleados.js";
+import { btn3, obtenerHTML as obtenerHTML2, obtenerDatosEmpleados as obtenerDatos2 } from "./empleados.js";
 import { btn4, miHTML, obtDatos } from "./picsum.js";
 import { btn5, miHTML as miHTML2, obtDatosUsers } from "./addUsers.js";
-import { btn6, obtenerEmpleado, obtDatos as obtDatos3 } from "./pedirEmpleado.js";
+import { btn6, obtenerEmpleado, obtenerDatosEmpleado as obtDatos3 } from "./pedirEmpleado.js";
 
 
 btn1.addEventListener("click", obtenerTexto);

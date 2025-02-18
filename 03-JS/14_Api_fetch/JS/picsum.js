@@ -1,5 +1,5 @@
 export const btn4 = document.querySelector('#btn4');
-mostra = document.querySelector('#mostra');
+
 
 //funcion que manejará los datos obtenidos
 export const miHTML = (datos) => {

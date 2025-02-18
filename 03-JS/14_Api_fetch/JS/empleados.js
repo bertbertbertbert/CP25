@@ -1,6 +1,5 @@
 export const btn3 = document.querySelector('#btn3');
 
-
 export const obtenerHTML = (empleados) => {
   mostra.innerHTML = "";
   empleados.forEach(empleado => {

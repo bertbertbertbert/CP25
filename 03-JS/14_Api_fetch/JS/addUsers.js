@@ -2,7 +2,7 @@ export const btn5 = document.querySelector('#btn5');
 
 // id foto title nombre apellido description 
 
-mostra = document.querySelector('#mostra');
+
 
 
 export const miHTML = (datos) => {
