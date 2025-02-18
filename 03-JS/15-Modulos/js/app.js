@@ -5,18 +5,18 @@ console.log(nombreClienteA); */
 //la solucion es agrupar cada archivo en lo que conoce como un IIFE (Immediately Invoked Function Expression)
 //2, para mejorar esa forma de uso con las IIFE, usaremos modulos , que nos permite importar y exportar parte del codigo segun nuestras necesidades : ejemplo de importacion de nombreCliente
 
-import { nombreCliente } from "./cliente.js";
-
-/* console.log(nombreCliente);
-
-
-const mostrarDatosCliente = mostrarDatos(nombreCliente, ahorro);
-console.log(mostrarDatosCliente);  */
-
-//creacion de una clase, modelo para construir objetos.
-
+import { nombreCliente, ahorro } from "./cliente.js";
 import { Cliente } from "./cliente.js";
+import { Empresa } from "./empresa.js";
 
-const cliente = new Cliente(nombreCliente, 500);
+const cliente = new Cliente(nombreCliente, ahorro);
+console.log(cliente.mostrarDatos());
 
-console.log(cliente.mostrarDatos(), cliente.nombre, cliente.ahorro);
+let nombreEmpresa = 'International holding';
+let ahorroEmpresa = 200000000;
+let categoriaEmpresa = 'Construcción';
+
+let empresa = new Empresa(nombreEmpresa, ahorroEmpresa, categoriaEmpresa);
+console.log(empresa.mostrarDatos());
+
+console.log(empresa.nombre);
