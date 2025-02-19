@@ -35,7 +35,6 @@ const ciudadYPais = () => {
       paisSeleccionado = pais.value;
     }
   });
-  
   ciudadSeleccionada = ciudad.value;
   ciudadSeleccionada = ciudadSeleccionada.charAt(0).toUpperCase() + ciudadSeleccionada.slice(1);
   if (ciudadSeleccionada === "") {
@@ -51,7 +50,6 @@ const ciudadYPais = () => {
 
 //presentamos las temperaturas recogidas 
 const presentarTemperatura = (datos) => {
-  
   info.style.backgroundColor = "black";
   tempActual.innerHTML = "La temperatura actual en " + ciudadSeleccionada + " es de " + Math.floor((datos.main.temp - 273)) + "C";
   tempMax.innerHTML = "La temperatura máxima es de " + Math.floor((datos.main.temp_max - 273)) + "C";
@@ -61,11 +59,10 @@ const presentarTemperatura = (datos) => {
 //recogemos las teperaturas recogidas desde la API
 const obtenerDatos = () => {
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudadSeleccionada},${paisSeleccionado}&appid=c425aa48584ba8ac76b6ec738a35b2fe`)
-
-    .then((response) => {
+   
+  .then((response) => {
       if (!response.ok) {
         throw new Error('Error de la solicitud');
-
       }
       return response.json();
     })
@@ -78,16 +75,12 @@ const obtenerDatos = () => {
       mostraError.innerHTML = "Ciudad no encontrada";
     });
 };
+
 btn.onclick = () => {
   obtenertFoto();
   ciudadYPais();
   obtenerDatos();
 }
-
-window.onload = () => {
-  obtenertFoto();
-
-};
 
 document.addEventListener("keyup", function (event) {
   if (event.key === "Enter") {
@@ -95,3 +88,6 @@ document.addEventListener("keyup", function (event) {
     obtenerDatos();
   }
 });
+
+window.onload = () =>obtenertFoto();
+
