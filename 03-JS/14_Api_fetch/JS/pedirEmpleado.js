@@ -1,7 +1,7 @@
 export const btn6 = document.querySelector('#btn6');
 
 
-export const obtenerEmpleado = ((empleado) => {
+export const obtenerHTML = ((empleado) => {
   mostra.innerHTML = `<p>Empleado: ${empleado.nombre}</p>
                       <p>ID: ${empleado.id}</p>
                       <p>Empresa: ${empleado.empresa}</p>
@@ -9,7 +9,7 @@ export const obtenerEmpleado = ((empleado) => {
                       <hr>`
 });
 
-export const obtenerDatosEmpleado = (id) => {
+export const obtenerDatos = (id) => {
   fetch('./server/empleados.json')
     .then((response) => {
       if (!response.ok) {
@@ -20,13 +20,10 @@ export const obtenerDatosEmpleado = (id) => {
     .then((empleados) => {
       const empleado = empleados.find((emp) => emp.id === id);
       console.log(empleado);
-      obtenerEmpleado(empleado);
+      obtenerHTML(empleado);
     })
     .catch((error) => {
       console.log(error);
     });
 };
 
-btn6.addEventListener("click", () => {
-  obtenerDatosEmpleado(2);
-});

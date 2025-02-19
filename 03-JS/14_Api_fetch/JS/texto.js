@@ -20,7 +20,3 @@ export const obtenerTexto = () => {
       console.log(error);
     });
 }
-
-/* btn1.onclick = () => {
-  obtenerTexto();
-}; */

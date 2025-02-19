@@ -14,7 +14,7 @@ export const obtenerHTML = (empleados) => {
   });
 };
 
-export const obtenerDatosEmpleados = () => {
+export const obtenerDatos = () => {
   fetch('./server/empleados.json')
     .then((response) => {
       if (!response.ok) {
@@ -31,4 +31,3 @@ export const obtenerDatosEmpleados = () => {
     });
 };
 
-btn3.addEventListener("click", obtenerDatosEmpleados);

@@ -25,4 +25,3 @@ export const obtenerDatos = () => {
     });
 };
 
-btn2.addEventListener("click", obtenerDatos);

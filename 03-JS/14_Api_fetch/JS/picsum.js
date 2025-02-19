@@ -2,7 +2,7 @@ export const btn4 = document.querySelector('#btn4');
 
 
 //funcion que manejará los datos obtenidos
-export const miHTML = (datos) => {
+export const obtenerHTML = (datos) => {
   mostra.innerHTML = "";
   let html = `<h4> Usuarius Pocsum </h4>`;
   datos.forEach((dato) => {
@@ -14,7 +14,7 @@ export const miHTML = (datos) => {
 }
 
 //funcion que hace la llamada a la API y obtiene los datos o devuelve error, y ejecuta la funcion que maneja los datos con los datos como atributo
-export const obtDatos = () => {
+export const obtenertDatos = () => {
   fetch('https://picsum.photos/v2/list?page=2&limit=50')
     .then((response) => {
       console.log(response);
@@ -25,7 +25,7 @@ export const obtDatos = () => {
     })
     .then((response) => {
       console.log(response);
-      miHTML(response);
+      obtenerHTML(response);
     })
     .catch((error) => {
       console.log(error);
@@ -33,4 +33,3 @@ export const obtDatos = () => {
     });
 };
 
-btn4.addEventListener('click', obtDatos);

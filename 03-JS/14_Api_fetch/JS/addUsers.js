@@ -1,11 +1,6 @@
 export const btn5 = document.querySelector('#btn5');
 
-// id foto title nombre apellido description 
-
-
-
-
-export const miHTML = (datos) => {
+export const obtenerHTML = (datos) => {
   mostra.innerHTML = "";
   let html = `<h4> Usuarios </h4>`;
   datos.forEach((dato) => {
@@ -20,7 +15,7 @@ export const miHTML = (datos) => {
   mostra.innerHTML = html;
 }
 
-export const obtDatosUsers = () => {
+export const obtenerDatos = () => {
   fetch('https://randomuser.me/api/?results=50')
     .then((response) => {
       if (!response.ok) {
@@ -29,12 +24,10 @@ export const obtDatosUsers = () => {
       return response.json();
     })
     .then((response) => {
-      miHTML(response.results);
+      obtenerHTML(response.results);
     })
     .catch((error) => {
       console.log(error);
       mostra.innerHTML = "Error";
     });
 };
-
-btn5.addEventListener('click', obtDatosUsers);
