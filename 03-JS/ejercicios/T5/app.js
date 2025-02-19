@@ -6,6 +6,8 @@ const mostraError = document.querySelector('#error')
 const tempActual = document.querySelector('#tempActual');
 const tempMax = document.querySelector('#tempMax');
 const tempMin = document.querySelector('#tempMin');
+let paisSeleccionado;
+let ciudadSeleccionada;
 
 //obtenemos foto random para el fondo cada vez que se hace click en el boton, desde picsum
 const obtenertFoto = () => {
@@ -28,13 +30,12 @@ const obtenertFoto = () => {
 
 //obtenemos valores de select e input y los validamos 
 const ciudadYPais = () => {
-  let paisSeleccionado;
-  let ciudadSeleccionada;
   paises.forEach(pais => {
     if (pais.selected) {
       paisSeleccionado = pais.value;
     }
   });
+  
   ciudadSeleccionada = ciudad.value;
   ciudadSeleccionada = ciudadSeleccionada.charAt(0).toUpperCase() + ciudadSeleccionada.slice(1);
   if (ciudadSeleccionada === "") {
@@ -43,13 +44,14 @@ const ciudadYPais = () => {
   } else {
     mostraError.innerHTML = "";
   }
-  return { paisSeleccionado, ciudadSeleccionada };
+  console.log(paisSeleccionado);
+  console.log(ciudadSeleccionada);
 }
 
 
 //presentamos las temperaturas recogidas 
 const presentarTemperatura = (datos) => {
-  const { ciudadSeleccionada } = ciudadYPais();
+  
   info.style.backgroundColor = "black";
   tempActual.innerHTML = "La temperatura actual en " + ciudadSeleccionada + " es de " + Math.floor((datos.main.temp - 273)) + "C";
   tempMax.innerHTML = "La temperatura máxima es de " + Math.floor((datos.main.temp_max - 273)) + "C";
@@ -58,7 +60,6 @@ const presentarTemperatura = (datos) => {
 
 //recogemos las teperaturas recogidas desde la API
 const obtenerDatos = () => {
-  const { paisSeleccionado, ciudadSeleccionada } = ciudadYPais();
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudadSeleccionada},${paisSeleccionado}&appid=c425aa48584ba8ac76b6ec738a35b2fe`)
 
     .then((response) => {
@@ -79,16 +80,18 @@ const obtenerDatos = () => {
 };
 btn.onclick = () => {
   obtenertFoto();
+  ciudadYPais();
   obtenerDatos();
 }
 
 window.onload = () => {
   obtenertFoto();
-  paises.focus();
+
 };
 
 document.addEventListener("keyup", function (event) {
   if (event.key === "Enter") {
+    ciudadYPais();
     obtenerDatos();
   }
 });
