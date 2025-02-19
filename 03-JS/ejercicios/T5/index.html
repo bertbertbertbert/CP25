@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="estilos.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="contenedor">
+    <h2>¿QUÉ TIEMPO HACE HOY?</h2>
+    <div id="info">
+      <p id="tempActual"></p>
+      <p id="tempMax"></p>
+      <p id="tempMin"></p>
+    </div>
+    <label for="pais">Selecciona un pais</label>
+    <select tabindex="1" class="form-control" id="pais">
+      <option value="es">España</option>
+      <option value="fr">Francia</option>
+    </select><br><br>
+    <input tabindex="2" type="text" id="ciudad" class="form-control" placeholder="Ciudad" required>
+    <div id="contenedorBtn">
+      <button tabindex="3" id="btn" class="btn btn-primary">¡Quiero conocer la temperatura!</button>
+    </div>
+    <div id="error"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>

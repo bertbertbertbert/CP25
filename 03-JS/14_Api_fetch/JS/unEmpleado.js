@@ -14,11 +14,12 @@ export let obtenerHTML = (empleado) => {
 export const obtenerDatos = () => {
   fetch('./server/empleado.json')
     .then((response) => {
+      /* if (!response.ok){ throw new Error('Error al obtener los datos'); }*/
       return response.json();
+
     })
     .then((response) => {
       obtenerHTML(response);
-      /* if (!response.ok) throw new Error('Error al obtener los datos'); */
     })
     .catch((error) => {
       console.log('There was a problem with the fetch operation:', error);
