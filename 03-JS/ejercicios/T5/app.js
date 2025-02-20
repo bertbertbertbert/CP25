@@ -37,14 +37,8 @@ const ciudadYPais = () => {
   });
   ciudadSeleccionada = ciudad.value;
   ciudadSeleccionada = ciudadSeleccionada.charAt(0).toUpperCase() + ciudadSeleccionada.slice(1);
-  if (ciudadSeleccionada === "") {
-    mostraError.innerHTML = "Seleccione una ciudad, por favor"
-    return;
-  } else {
-    mostraError.innerHTML = "";
-  }
-  console.log(paisSeleccionado);
-  console.log(ciudadSeleccionada);
+  mostraError.innerHTML = "";
+
 }
 
 
@@ -59,8 +53,8 @@ const presentarTemperatura = (datos) => {
 //recogemos las teperaturas recogidas desde la API
 const obtenerDatos = () => {
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudadSeleccionada},${paisSeleccionado}&appid=c425aa48584ba8ac76b6ec738a35b2fe`)
-   
-  .then((response) => {
+
+    .then((response) => {
       if (!response.ok) {
         throw new Error('Error de la solicitud');
       }
@@ -72,7 +66,7 @@ const obtenerDatos = () => {
     })
     .catch((error) => {
       console.log(error);
-      mostraError.innerHTML = "Ciudad no encontrada";
+      mostraError.innerHTML = error;
     });
 };
 
@@ -89,5 +83,8 @@ document.addEventListener("keyup", function (event) {
   }
 });
 
-window.onload = () =>obtenertFoto();
+window.onload = () => {
+  ciudad.value = "";
+  obtenertFoto();
+}
 
