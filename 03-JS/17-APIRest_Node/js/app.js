@@ -5,47 +5,125 @@ const mostrar = d.querySelector("#contenido");
 const fragmento = d.createDocumentFragment();
 const formTemplate = d.querySelector("#form-template").content;
 const template = d.querySelector("#crud-template").content;
-const id=d.querySelector("#id");
-/* const formTemplate = d.querySelector(".crud-table tbody"); */
-
-const encontrarEmpleado=((empleados)=>{
-  form=d.querySelector("#crud-form");
-  empleados.forEach(empleado =>{
-    if(id.value==empleado.id){
-      form.nombre.value=empleado.nombre;
-      form.empresa.value=empleado.empresa;
-      form.puesto.value=empleado.puesto;
-      d.querySelector("#error").innerHTML="";
-    }
-  })
-})
+let numeroEmpleados;
 
 const mostrarEmpleados = ((empleados) => {
   mostrar.innerHTML = "";
+  const formClone = d.importNode(formTemplate, true);
+  mostrar.appendChild(formClone);
+  const tabla = d.querySelector(".crud-table tbody");
+  tabla.innerHTML = "";
   empleados.forEach(empleado => {
     let clone = d.importNode(template, true);
     clone.querySelector(".id").textContent = empleado.id;
     clone.querySelector(".name").textContent = empleado.nombre;
     clone.querySelector(".empresa").textContent = empleado.empresa;
     clone.querySelector(".puesto").textContent = empleado.puesto;
-    clone.querySelector(".edit");
-    clone.querySelector(".delete");
+    clone
+      .querySelector(".edit")
+      .addEventListener("click", () => editarEmpleado(empleado));
+    clone
+      .querySelector(".delete")
+      .addEventListener("click", () => eliminarEmpleado(empleado.id));
     fragmento.appendChild(clone);
   });
-  formTemplate.appendChild(fragmento);
-  mostrar.appendChild(formTemplate);
+  tabla.appendChild(fragmento);
 })
 
+d.addEventListener("submit", async (e) => {
+  if (e.target.matches("#crud-form")) {
+    e.preventDefault();
+
+    const empleados = await fetch("http://localhost:3000/users")
+      .then((res) => res.json())
+      .catch((error) => console.log("Error al obtener empleados", error));
+
+    let id = numeroEmpleados + 1;
+    if (e.target.id.value) {
+      id = e.target.id.value;
+    } else {
+
+      const maxIdEmpleado = Math.max(...empleados.map((emp) => emp.id));
+      id = maxIdEmpleado + 1;
+    }
+
+    const empleado = {
+      id: id,
+      nombre: e.target.nombre.value,
+      empresa: e.target.empresa.value,
+      puesto: e.target.puesto.value,
+    };
+
+
+    console.log(numeroEmpleados);
+
+    let url = "http://localhost:3000/users";
+    let method = "POST";
+
+    if (e.target.id.value) {
+      url += `/${e.target.id.value}`;
+      method = "PUT";
+    }
+
+    try {
+      let res = await fetch(url, {
+        method: method,
+        headers: {
+          "Content-type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify(empleado),
+      });
+
+      if (!res.ok) throw new Error("Error en la solicitud");
+
+      alert(`Empleado ${e.target.id.value ? "editado" : "añadido"} correctamente`);
+
+      obtListaEmpleados();
+      e.target.reset();
+      e.target.id.value = "";
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+});
+
+const editarEmpleado = (empleado) => {
+  const form = d.querySelector("#crud-form");
+  form.id.value = empleado.id;
+  form.nombre.value = empleado.nombre;
+  form.empresa.value = empleado.empresa;
+  form.puesto.value = empleado.puesto;
+}
+
+const eliminarEmpleado = (id) => {
+  if (confirm("Seguro que quiere eliminar?")) {
+    fetch(`http://localhost:3000/users/${id}`, { method: "DELETE", })
+      .then((response) => {
+        if (!response.ok) throw new Error("Error en la solicitud");
+        return response.json();
+      })
+      .then(() => {
+        alert("Empleado eliminado");
+        obtListaEmpleados();
+      })
+      .catch((error) => {
+        console.log("Error", error);
+      });
+  }
+};
+
 const obtListaEmpleados = () => {
-  fetch("/03-JS/14_Api_fetch/server/db.json")
+  fetch("http://localhost:3000/users/")
     .then((response) => {
       if (!response.ok) throw new Error("error en la solicitud");
       return response.json();
     })
     .then((data) => {
       console.log(data);
-      mostrarEmpleados(data.users);
-      encontrarEmpleado(data.users);
+      mostrarEmpleados(data);
+      numeroEmpleados = data.length;
+      console.log(numeroEmpleados);
     })
     .catch((error) => {
       console.log("error a cargar los empleados", error);
@@ -53,8 +131,5 @@ const obtListaEmpleados = () => {
 };
 
 cargarUsuarios.onclick = () => {
-  obtListaEmpleados();
-}
-btnBuscar.onclick = ()=>{
   obtListaEmpleados();
 }

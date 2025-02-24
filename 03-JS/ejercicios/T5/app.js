@@ -44,7 +44,7 @@ const ciudadYPais = () => {
 
 //presentamos las temperaturas recogidas 
 const presentarTemperatura = (datos) => {
-  info.style.backgroundColor = "black";
+  info.style.backgroundColor = " rgb(255, 252, 96)";
   tempActual.innerHTML = "La temperatura actual en " + ciudadSeleccionada + " es de " + Math.floor((datos.main.temp - 273)) + "C";
   tempMax.innerHTML = "La temperatura máxima es de " + Math.floor((datos.main.temp_max - 273)) + "C";
   tempMin.innerHTML = "La temperatura mínima en es de " + Math.floor((datos.main.temp_min - 273)) + "C";
