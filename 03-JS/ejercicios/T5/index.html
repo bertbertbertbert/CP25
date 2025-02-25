@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div id="contenedor">
+  <div id="contenedor" class="container p-5 mt-5 bg-white shadow-sm">
     <h2>¿QUÉ TIEMPO HACE HOY?</h2>
     <div id="info">
       <p id="tempActual"></p>
@@ -18,13 +18,14 @@
       <p id="tempMin"></p>
     </div><br>
     <label for="pais">Selecciona un pais</label>
-    <select tabindex="1" class="form-control" id="pais">
+    <select tabindex="1" class="form-control" id="pais"  aria-label="Seleccionar país entre sus opciones">
       <option value="es">España</option>
       <option value="fr">Francia</option>
+      <option value="it">Italia</option>
     </select><br><br>
-    <input tabindex="2" type="text" id="ciudad" class="form-control" placeholder="Ciudad" required>
+    <input tabindex="2" type="text" id="ciudad" class="form-control" placeholder="Ciudad"  aria-label="Escribir ciudad de país seleccionado" required>
     <div id="contenedorBtn">
-      <button tabindex="3" id="btn" class="btn btn-primary">¡Quiero saber la temperatura!</button>
+      <button tabindex="3" id="btn" class="btn btn-primary" aria-label="Obtener la temperatura seleccionada">¡Quiero saber la temperatura!</button>
     </div>
     <div id="error"></div>
   </div>

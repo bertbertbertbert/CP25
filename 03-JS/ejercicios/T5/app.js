@@ -38,7 +38,6 @@ const ciudadYPais = () => {
   ciudadSeleccionada = ciudad.value;
   ciudadSeleccionada = ciudadSeleccionada.charAt(0).toUpperCase() + ciudadSeleccionada.slice(1);
   mostraError.innerHTML = "";
-
 }
 
 
@@ -73,7 +72,7 @@ const obtenerDatos = () => {
 btn.onclick = () => {
   obtenertFoto();
   ciudadYPais();
-  obtenerDatos();
+  obtenerDatos(); 
 }
 
 document.addEventListener("keyup", function (event) {

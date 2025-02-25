@@ -5,7 +5,7 @@ const mostrar = d.querySelector("#contenido");
 const fragmento = d.createDocumentFragment();
 const formTemplate = d.querySelector("#form-template").content;
 const template = d.querySelector("#crud-template").content;
-let numeroEmpleados;
+
 
 const mostrarEmpleados = ((empleados) => {
   mostrar.innerHTML = "";
@@ -34,19 +34,21 @@ d.addEventListener("submit", async (e) => {
   if (e.target.matches("#crud-form")) {
     e.preventDefault();
 
-    const empleados = await fetch("http://localhost:3000/users")
+      fetch("http://localhost:3000/users")
       .then((res) => res.json())
+      .then((data) => {
+        numeroEmpleados = data.length;
+      })
       .catch((error) => console.log("Error al obtener empleados", error));
 
-    let id = numeroEmpleados + 1;
+    let id;
     if (e.target.id.value) {
       id = e.target.id.value;
     } else {
-
-      const maxIdEmpleado = Math.max(...empleados.map((emp) => emp.id));
-      id = maxIdEmpleado + 1;
+      id =  numeroEmpleados + 1;
     }
-
+    console.log(id);
+    
     const empleado = {
       id: id,
       nombre: e.target.nombre.value,
@@ -54,8 +56,6 @@ d.addEventListener("submit", async (e) => {
       puesto: e.target.puesto.value,
     };
 
-
-    console.log(numeroEmpleados);
 
     let url = "http://localhost:3000/users";
     let method = "POST";
@@ -122,8 +122,7 @@ const obtListaEmpleados = () => {
     .then((data) => {
       console.log(data);
       mostrarEmpleados(data);
-      numeroEmpleados = data.length;
-      console.log(numeroEmpleados);
+
     })
     .catch((error) => {
       console.log("error a cargar los empleados", error);
