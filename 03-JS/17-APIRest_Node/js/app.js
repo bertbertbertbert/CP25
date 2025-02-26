@@ -30,25 +30,31 @@ const mostrarEmpleados = ((empleados) => {
   tabla.appendChild(fragmento);
 })
 
+const crearId = async () => {
+  let numeroEmpleados;
+  try {
+    const res = await fetch("http://localhost:3000/users");
+    const data = await res.json();
+    console.log(data);
+    let numero = data.length + 1;
+    numeroEmpleados = numero.toString();
+  } catch (error) {
+    console.log(error);
+  }
+  return numeroEmpleados;
+}
+
 d.addEventListener("submit", async (e) => {
   if (e.target.matches("#crud-form")) {
     e.preventDefault();
 
-      fetch("http://localhost:3000/users")
-      .then((res) => res.json())
-      .then((data) => {
-        numeroEmpleados = data.length;
-      })
-      .catch((error) => console.log("Error al obtener empleados", error));
-
+    const nuevaId = await crearId();
     let id;
     if (e.target.id.value) {
       id = e.target.id.value;
     } else {
-      id =  numeroEmpleados + 1;
+      id = nuevaId;
     }
-    console.log(id);
-    
     const empleado = {
       id: id,
       nombre: e.target.nombre.value,
@@ -97,6 +103,7 @@ const editarEmpleado = (empleado) => {
 }
 
 const eliminarEmpleado = (id) => {
+  console.log(id);
   if (confirm("Seguro que quiere eliminar?")) {
     fetch(`http://localhost:3000/users/${id}`, { method: "DELETE", })
       .then((response) => {
