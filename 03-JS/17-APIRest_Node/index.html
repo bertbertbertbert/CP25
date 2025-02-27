@@ -4,16 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+  <style>
+    #usuarios:hover {
+      background-color: white;
+      color: black;
+    }
+  </style>
   <title>API REST</title>
 </head>
 
-<body>
-  <button id="usuarios" class="btn" type="button">Cargar Listado de EMPLEADOS</button>
-  <!--   <button id="buscarBtn">Buscar</button>
-  <input type="text" id="id" placeholder="Introduce ID empleado"><div id="error"></div> -->
+<body class="p-4">
+  <button id="usuarios" class="btn btn btn-dark" type="button">Cargar Listado de EMPLEADOS</button>
   <div id="contenido"></div>
   <template id="form-template">
-    <form id="crud-form">
+    <form id="crud-form" class="d-flex justify-content-center" >
       <input type="hidden" name="id">
       <input type="text" name="nombre" placeholder="Nombre" required>
       <br>
@@ -23,7 +28,7 @@
       <br>
       <input type="submit" value="actualizar">
     </form>
-    <table class="crud-table">
+    <table class="crud-table table table-bordered table-striped">
       <thead>
         <tr>
           <th>ID</th>
@@ -42,8 +47,8 @@
       <td class="empresa"></td>
       <td class="puesto"></td>
       <td>
-        <button class="edit">Editar</button>
-        <button class="delete">Eliminar</button>
+        <button class="edit btn btn-primary">Editar</button>
+        <button class="delete btn btn-danger">Eliminar</button>
       </td>
     </tr>
   </template>
